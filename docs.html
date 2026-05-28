@@ -296,7 +296,7 @@
             <li><strong>Modular Window</strong> — toggle pop-out mode to detach the side panel into a floating window</li>
             <li><strong>Account connection</strong> — manual Account ID + Nonce fields for Xbox/PlayStation players</li>
             <li><strong>Data</strong> — refresh item database, clear cached prices</li>
-            <li><strong>Support</strong> — view the overlay session log for debugging OCR issues</li>
+            <li><strong>View Log</strong> — view the overlay session log for debugging OCR issues</li>
             <li><strong>About</strong> — version number and update check (compares against GitHub releases)</li>
           </ul>
         </section>
@@ -326,7 +326,7 @@
 
           <div class="faq-item">
             <h3>The OCR overlay showed the wrong item — what happened?</h3>
-            <p>The overlay uses Windows OCR and fuzzy text matching, which works well in most cases but can occasionally misread items — especially with diacritics or non-English text. If this happens, check the session log in Settings → Support and open a GitHub issue with the log attached.</p>
+            <p>The overlay uses Windows OCR and fuzzy text matching, which works well in most cases but can occasionally misread items — especially with diacritics or non-English text. If this happens, check the session log in Settings → View Log and open a GitHub issue with the log attached.</p>
           </div>
 
           <div class="faq-item">
@@ -357,9 +357,8 @@
           <h2>Known Limitations</h2>
 
           <ul>
-            <li><strong>Mission rewards (mid-mission)</strong> — in-mission reward data format is not identified; only post-mission inventory changes are captured when you return to the Orbiter.</li>
+            <li><strong>Mission rewards (mid-mission)</strong> — in-mission reward data format is not identified; API data is only updated after a mission.</li>
             <li><strong>Rivens</strong> — not tracked.</li>
-            <li><strong>Sold item mastery</strong> — mastery XP from items sold before connecting the API is not recoverable without the API.</li>
             <li><strong>Multi-monitor setups</strong> — DXGI capture targets the monitor containing the Warframe window, but unusual configurations may cause the OCR overlay to appear on the wrong display.</li>
             <li><strong>Non-English clients</strong> — the OCR fuzzy matcher works best with English item names; other languages may produce less accurate results.</li>
             <li><strong>Linux / Mac</strong> — not supported; depends on Windows-only APIs.</li>
