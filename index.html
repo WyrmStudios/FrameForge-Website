@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FrameForge — A free Warframe companion app that tracks your inventory, foundry progress, and more in real time.">
+  <meta name="description" content="FrameForge — Free, open-source Warframe companion app. Live inventory, foundry tracker, market prices, relic helper, and OCR reward overlay.">
   <title>FrameForge — Warframe Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body>
 
   <nav class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⚙</span>
+        <img src="assets/logo.png" class="logo-img" alt="FrameForge">
         FrameForge
       </a>
       <div class="nav-links">
@@ -36,12 +37,12 @@
         <div class="hero-text">
           <div class="hero-badge">Open Source · Free · Windows</div>
           <h1 class="hero-title">
-            Your Warframe inventory,<br>
-            <span class="accent">always up to date.</span>
+            Your Warframe companion,<br>
+            <span class="accent">built for Tenno.</span>
           </h1>
           <p class="hero-subtitle">
-            FrameForge reads your game memory in real time to track what you own,
-            what you're crafting, and what you still need — without touching your files.
+            Live inventory, foundry tracking, market prices, relic planning, and an OCR overlay
+            that reads your reward screen for you — all read-only, all free, all open source.
           </p>
           <div class="hero-actions">
             <a href="#download" class="btn-primary">Download for Windows</a>
@@ -50,47 +51,7 @@
           <p class="hero-note">Free and open source. No account required.</p>
         </div>
         <div class="hero-visual">
-          <div class="app-preview">
-            <div class="preview-bar">
-              <span class="preview-dot red"></span>
-              <span class="preview-dot yellow"></span>
-              <span class="preview-dot green"></span>
-              <span class="preview-title">FrameForge</span>
-            </div>
-            <div class="preview-content">
-              <div class="preview-header">
-                <span class="preview-mr">MR 14</span>
-                <span class="preview-status">● Scanning</span>
-              </div>
-              <div class="preview-tabs">
-                <span class="tab active">Inventory</span>
-                <span class="tab">Foundry</span>
-                <span class="tab">Relics</span>
-              </div>
-              <div class="preview-items">
-                <div class="preview-item">
-                  <span class="item-name">Nano Spores</span>
-                  <span class="item-count">84,200</span>
-                </div>
-                <div class="preview-item">
-                  <span class="item-name">Morphics</span>
-                  <span class="item-count">123</span>
-                </div>
-                <div class="preview-item">
-                  <span class="item-name">Plastids</span>
-                  <span class="item-count">12,400</span>
-                </div>
-                <div class="preview-item">
-                  <span class="item-name">Saryn Blueprint</span>
-                  <span class="item-count gold">1</span>
-                </div>
-                <div class="preview-item">
-                  <span class="item-name">Orokin Cell</span>
-                  <span class="item-count">47</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <img src="assets/inventory.png" alt="FrameForge inventory view" class="hero-screenshot">
         </div>
       </div>
     </section>
@@ -106,32 +67,66 @@
           <div class="feature-card">
             <div class="feature-icon">📦</div>
             <h3>Live Inventory</h3>
-            <p>Resources, blueprints, weapons, Warframes — all tracked automatically as your inventory changes in game.</p>
+            <p>Resources, blueprints, weapons, Warframes — scanned from game memory every 10 seconds. No login required.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🔨</div>
             <h3>Foundry Tracker</h3>
-            <p>See which components you own, which blueprints you have, and exactly what you're still missing for every build.</p>
+            <p>Browse every craftable item with full ingredient trees. Star items to track them and see exactly what you still need to farm.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👁</div>
+            <h3>OCR Reward Overlay</h3>
+            <p>When a void fissure reward screen opens, FrameForge automatically reads the four cards and shows platinum price, ducat value, and set completion — no alt-tab needed.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Market Helper</h3>
+            <p>Look up live platinum sell prices from warframe.market for any item or prime set — fetched on demand, no account required.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">💎</div>
-            <h3>Relic Indicators</h3>
-            <p>Know which relics drop the parts you need, right in the component list — no more switching tabs.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">⭐</div>
-            <h3>Mastery Rank</h3>
-            <p>Your current Mastery Rank is always visible in the header — updated every scan cycle.</p>
+            <h3>Relic Helper</h3>
+            <p>Browse void fissure drop tables and calculate the best relics to run for the prime parts you're still missing.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">🔒</div>
-            <h3>Vault Status</h3>
-            <p>Each prime item shows whether it's currently vaulted or available in the active drop table.</p>
+            <h3>Strictly Read-Only</h3>
+            <p>FrameForge uses <code>ReadProcessMemory</code> — the same API used by Overwolf and Discord overlay. It never writes to memory, injects code, or modifies the game.</p>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Read-Only</h3>
-            <p>FrameForge never writes to or modifies your Warframe installation — it only reads.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>See it in action</h2>
+        </div>
+        <div class="stab-list">
+          <button class="stab active" data-target="ss-inventory">Inventory</button>
+          <button class="stab" data-target="ss-foundry">Foundry</button>
+          <button class="stab" data-target="ss-market">Market Helper</button>
+          <button class="stab" data-target="ss-relic">Relic Helper</button>
+          <button class="stab" data-target="ss-overlay">OCR Overlay</button>
+        </div>
+        <div class="stab-panels">
+          <div class="stab-panel active" id="ss-inventory">
+            <img src="assets/inventory.png" alt="FrameForge inventory tab">
+          </div>
+          <div class="stab-panel" id="ss-foundry">
+            <img src="assets/foundry.png" alt="FrameForge foundry tab">
+          </div>
+          <div class="stab-panel" id="ss-market">
+            <img src="assets/market.png" alt="FrameForge market helper">
+          </div>
+          <div class="stab-panel" id="ss-relic">
+            <img src="assets/relic-helper.png" alt="FrameForge relic helper">
+          </div>
+          <div class="stab-panel" id="ss-overlay">
+            <img src="assets/relic-overlay.png" alt="FrameForge OCR reward overlay in-game">
+            <p class="screenshot-caption">OCR overlay appears automatically when a void fissure reward screen opens — no alt-tab needed.</p>
           </div>
         </div>
       </div>
@@ -177,10 +172,10 @@
           <h2>Ready to forge?</h2>
           <p>Download FrameForge for Windows — free, open source, no account required.</p>
           <div class="download-actions">
-            <a href="https://github.com/Sikewyrm/FrameForge/releases" target="_blank" rel="noopener" class="btn-primary btn-large">
-              ⬇ Download FrameForge
+            <a href="https://github.com/Sikewyrm/FrameForge/releases/latest" target="_blank" rel="noopener" class="btn-primary btn-large">
+              ⬇ Download FrameForge v1.0.1
             </a>
-            <p class="download-note">Windows 10 / 11 &nbsp;·&nbsp; Requires Warframe to be running</p>
+            <p class="download-note">Windows 10 / 11 &nbsp;·&nbsp; Free &amp; open source under GPLv3</p>
           </div>
           <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener" class="github-link">
             View source on GitHub →

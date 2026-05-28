@@ -10,13 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/docs.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
 <body>
 
   <nav class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <span class="logo-icon">⚙</span>
+        <img src="assets/logo.png" class="logo-img" alt="FrameForge">
         FrameForge
       </a>
       <div class="nav-links">
@@ -41,6 +42,9 @@
           <div class="sidebar-group-title">Features</div>
           <a href="#inventory" class="sidebar-link">Inventory</a>
           <a href="#foundry" class="sidebar-link">Foundry</a>
+          <a href="#ocr-overlay" class="sidebar-link">OCR Reward Overlay</a>
+          <a href="#market-helper" class="sidebar-link">Market Helper</a>
+          <a href="#relic-helper" class="sidebar-link">Relic Helper</a>
           <a href="#mastery-rank" class="sidebar-link">Mastery Rank</a>
           <a href="#vault-status" class="sidebar-link">Vault Status</a>
         </div>
@@ -73,14 +77,14 @@
 
           <h3>Steps</h3>
           <ol>
-            <li>Go to the <a href="https://github.com/Sikewyrm/FrameForge/releases" target="_blank" rel="noopener">Releases page</a> on GitHub.</li>
-            <li>Download the latest <code>FrameForge-setup.exe</code>.</li>
+            <li>Go to the <a href="https://github.com/Sikewyrm/FrameForge/releases/latest" target="_blank" rel="noopener">latest release</a> on GitHub.</li>
+            <li>Download <code>FrameForge_1.0.1_x64-setup.exe</code>.</li>
             <li>Run the installer and follow the prompts.</li>
-            <li>Launch FrameForge from your Start menu or desktop shortcut.</li>
+            <li>Launch FrameForge from the Start menu or desktop shortcut.</li>
           </ol>
 
           <div class="callout callout-info">
-            <strong>SmartScreen warning:</strong> Windows may warn that the app is from an unknown publisher because FrameForge is not yet code-signed. Click <em>More info → Run anyway</em> to proceed.
+            <strong>SmartScreen warning:</strong> Windows may warn that the app is from an unknown publisher. This is because code-signing certificates cost ~$300/year and FrameForge is a free, open-source project. Click <em>More info → Run anyway</em> to proceed. The full source code is on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> if you want to verify what you're running.
           </div>
         </section>
 
@@ -156,6 +160,62 @@
 
         <hr class="docs-divider">
 
+        <!-- OCR Overlay -->
+        <section id="ocr-overlay">
+          <h2>OCR Reward Overlay</h2>
+
+          <p>When a void fissure reward screen opens in Warframe, FrameForge automatically detects it and displays a small overlay showing each of the four reward cards with:</p>
+          <ul>
+            <li>Item name</li>
+            <li>Current platinum sell price (from warframe.market)</li>
+            <li>Ducat value</li>
+            <li>Set completion status — whether you need it for a build</li>
+          </ul>
+
+          <p>This lets you pick the best reward instantly without alt-tabbing out of the game.</p>
+
+          <h3>How it works</h3>
+          <ol>
+            <li>FrameForge monitors <code>EE.log</code> for the void reward screen marker.</li>
+            <li>After a short delay for the card fade-in animation, it captures the top portion of the Warframe window.</li>
+            <li>Windows OCR reads the text from each card slot.</li>
+            <li>Rarity bar colour analysis classifies each reward as Bronze / Silver / Gold / Platinum.</li>
+            <li>The overlay appears with prices and ducat values ranked by value.</li>
+          </ol>
+
+          <div class="callout callout-info">
+            <strong>Best results:</strong> The overlay works in Windowed and Borderless Windowed mode. Fullscreen Exclusive is also supported via DXGI capture.
+          </div>
+        </section>
+
+        <hr class="docs-divider">
+
+        <!-- Market Helper -->
+        <section id="market-helper">
+          <h2>Market Helper</h2>
+
+          <p>The Market Helper lets you look up live platinum sell prices for any item or prime set, sourced from the public <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> v2 API.</p>
+          <ul>
+            <li>Prices are fetched on demand — no account required.</li>
+            <li>No data about you is sent anywhere; requests go directly from your machine to warframe.market (the same as visiting the website in a browser).</li>
+          </ul>
+        </section>
+
+        <hr class="docs-divider">
+
+        <!-- Relic Helper -->
+        <section id="relic-helper">
+          <h2>Relic Helper</h2>
+
+          <p>The Relic Helper lets you browse void fissure drop tables and work out the most efficient relics to run for prime parts you're still missing.</p>
+          <ul>
+            <li>Drop rate data comes from community-maintained sources.</li>
+            <li>Cross-referenced with your current inventory so you can focus only on parts you don't have.</li>
+          </ul>
+        </section>
+
+        <hr class="docs-divider">
+
         <!-- Mastery Rank -->
         <section id="mastery-rank">
           <h2>Mastery Rank</h2>
@@ -186,7 +246,9 @@
 
           <div class="faq-item">
             <h3>Is FrameForge safe to use?</h3>
-            <p>FrameForge only reads game memory — it never writes to it or modifies any files. It uses the same read-only Windows APIs that other Warframe companion tools use (<code>ReadProcessMemory</code> / <code>VirtualQueryEx</code>). That said, you use it at your own risk.</p>
+            <p>FrameForge is strictly read-only. It uses <code>ReadProcessMemory</code> — the same Windows API used by Overwolf, Discord overlay, and hardware monitors. It never writes to memory, injects code, or hooks the game in any way.</p>
+            <p>Network requests go only to <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (for prices) and community GitHub repos (item catalog, drop rates). There is no FrameForge server, no telemetry, and nothing leaves your machine beyond those two sources.</p>
+            <p>Digital Extremes has publicly confirmed that read-only memory tools are acceptable. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
           </div>
 
           <div class="faq-item">

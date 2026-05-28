@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:alecaframe.com)"
+      "WebFetch(domain:alecaframe.com)",
+      "Bash(gh api *)",
+      "Bash(powershell -command \"[System.Text.Encoding]::UTF8.GetString\\([System.Convert]::FromBase64String\\(\\(Get-Content -Raw -\\)\\)\\)\")",
+      "Bash(ls \"C:\\\\Users\\\\Jochem\\\\Desktop\\\\FrameForge Images\")",
+      "Read(//c/Users/Jochem/Desktop/FrameForge Images/**)"
     ]
   }
 }

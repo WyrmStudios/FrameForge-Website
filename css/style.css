@@ -215,6 +215,25 @@ body {
   color: var(--text-muted);
 }
 
+/* ── NAV LOGO IMAGE ───────────────────────────────── */
+
+.logo-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* ── HERO SCREENSHOT ──────────────────────────────── */
+
+.hero-screenshot {
+  width: 100%;
+  max-width: 580px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), 0 0 60px rgba(88, 196, 220, 0.08);
+  display: block;
+}
+
 /* ── APP PREVIEW MOCKUP ───────────────────────────── */
 
 .hero-visual {
@@ -398,6 +417,73 @@ body {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.7;
+}
+
+/* ── SCREENSHOTS ──────────────────────────────────── */
+
+.screenshots {
+  padding: 96px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.stab-list {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.stab {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.stab:hover {
+  color: var(--text);
+  background: var(--card-bg);
+}
+
+.stab.active {
+  color: var(--accent);
+  background: var(--accent-dim);
+  border-color: rgba(88, 196, 220, 0.28);
+}
+
+.stab-panels {
+  position: relative;
+}
+
+.stab-panel {
+  display: none;
+  text-align: center;
+}
+
+.stab-panel.active {
+  display: block;
+}
+
+.stab-panel img {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.screenshot-caption {
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: center;
 }
 
 /* ── HOW IT WORKS ─────────────────────────────────── */
