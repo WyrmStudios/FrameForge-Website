@@ -89,6 +89,38 @@ body {
   color: var(--text);
 }
 
+.nav-social {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-discord,
+.btn-kofi {
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.btn-discord {
+  background: #5865F2;
+  color: #fff;
+}
+
+.btn-kofi {
+  background: #FF5E5B;
+  color: #fff;
+}
+
+.btn-discord:hover,
+.btn-kofi:hover {
+  opacity: 0.88;
+}
+
 .btn-download {
   background: var(--accent);
   color: #000;
