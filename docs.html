@@ -42,11 +42,11 @@
           <div class="sidebar-group-title">Features</div>
           <a href="#inventory" class="sidebar-link">Inventory</a>
           <a href="#foundry" class="sidebar-link">Foundry</a>
+          <a href="#modular-window" class="sidebar-link">Modular Window</a>
           <a href="#ocr-overlay" class="sidebar-link">OCR Reward Overlay</a>
           <a href="#market-helper" class="sidebar-link">Market Helper</a>
           <a href="#relic-helper" class="sidebar-link">Relic Helper</a>
-          <a href="#mastery-rank" class="sidebar-link">Mastery Rank</a>
-          <a href="#vault-status" class="sidebar-link">Vault Status</a>
+          <a href="#settings" class="sidebar-link">Settings</a>
         </div>
         <div class="sidebar-group">
           <div class="sidebar-group-title">Reference</div>
@@ -94,13 +94,20 @@
         <section id="first-launch">
           <h2>First Launch</h2>
 
-          <p>You can launch FrameForge before or after starting Warframe — it doesn't matter which order. The app polls for a running Warframe process at startup and will detect it automatically.</p>
+          <p>You can launch FrameForge before or after starting Warframe — the order doesn't matter. The app detects the Warframe process automatically on startup.</p>
 
           <h3>Triggering an inventory refresh</h3>
-          <p>Return to your <strong>Orbiter</strong> after completing a mission or visiting a relay. Your inventory will refresh within about 10 seconds.</p>
+          <p>Return to your <strong>Orbiter</strong> after completing a mission or visiting a relay. Your inventory refreshes within about 10 seconds.</p>
 
           <div class="callout callout-warning">
-            <strong>Heads up:</strong> Opening the in-game ESC menu does <em>not</em> reliably trigger a scan. Returning to your Orbiter is the most consistent refresh trigger.
+            <strong>Heads up:</strong> Opening the in-game ESC menu does <em>not</em> reliably trigger a scan. Returning to your Orbiter is the most consistent trigger.
+          </div>
+
+          <h3>Warframe API connection</h3>
+          <p>For full mod and arcane data, FrameForge connects to the Warframe Companion API. It scans your credentials automatically from game memory — no manual login needed for PC players. Once connected, inventory refreshes every 30 seconds in the background.</p>
+
+          <div class="callout callout-info">
+            <strong>Xbox / PlayStation:</strong> Automatic credential scanning only works on PC. Console players can enter their Account ID and Nonce manually in Settings.
           </div>
         </section>
 
@@ -110,22 +117,39 @@
         <section id="inventory">
           <h2>Inventory</h2>
 
-          <p>The Inventory tab shows everything tracked in your Warframe account, including:</p>
+          <p>The Inventory tab is the main view — everything you own, live. Items are organised into 14 categories:</p>
           <ul>
-            <li>Crafting resources (Nano Spores, Morphics, Plastids, Polymer Bundle, etc.)</li>
-            <li>Blueprints and recipe items</li>
-            <li>Warframes, weapons, and companions (unique items)</li>
+            <li>All Owned, Resources, Mods, Relics, Arcanes</li>
+            <li>Warframes, Primary, Secondary, Melee, Companions, Archwing</li>
+            <li>Parts, Blueprints, Miscellaneous</li>
           </ul>
 
-          <p>Quantities are updated automatically whenever FrameForge detects a valid inventory state in memory — typically when you return to your Orbiter.</p>
-
-          <h3>How scanning works</h3>
-          <p>FrameForge uses two scanners that run in parallel:</p>
+          <h3>Filters and search</h3>
           <ul>
-            <li><strong>Resource scanner</strong> — finds crafting resources and blueprints by matching the <code>ItemCount / ItemType</code> pattern in memory.</li>
-            <li><strong>Unique item scanner</strong> — locates warframes, weapons, and companions using a fast Aho-Corasick pattern match on known item paths.</li>
+            <li><strong>Text search</strong> — filter by item name</li>
+            <li><strong>Quick filters</strong> — Owned, Changed recently, Prime, Vaulted, Unvaulted</li>
+            <li><strong>Sort</strong> — by quantity (high/low), name (A–Z / Z–A), or recently changed</li>
+            <li><strong>Mod rank filters</strong> — filter mods by rank (Unranked through R30) when API data is available</li>
           </ul>
-          <p>Neither scanner writes to memory or modifies game files.</p>
+
+          <h3>Item card indicators</h3>
+          <ul>
+            <li><strong>★</strong> — item is mastered (rank 30)</li>
+            <li><strong>R{N}</strong> — partially ranked mod or arcane</li>
+            <li><strong>⚒</strong> — currently building in Foundry</li>
+            <li><strong>Green border</strong> — recently gained</li>
+            <li><strong>Red border</strong> — recently consumed or spent</li>
+          </ul>
+
+          <h3>Change log</h3>
+          <p>The bottom of the Inventory tab shows a running log of up to 200 quantity changes, each showing the item name, category, delta (±), old and new quantity, and timestamp.</p>
+
+          <h3>Data sources</h3>
+          <p>Inventory quantities come from two sources that are merged together:</p>
+          <ul>
+            <li><strong>Memory scanner</strong> — reads stackable items (resources, blueprints, relics) and unique items (warframes, weapons, companions) directly from the game process every 10 seconds. No credentials needed.</li>
+            <li><strong>Warframe API</strong> — when connected, provides authoritative counts for mods and arcanes including per-rank copy counts, plus Archon Shards and subsumed warframes. Refreshes every 30 seconds.</li>
+          </ul>
         </section>
 
         <hr class="docs-divider">
@@ -134,28 +158,48 @@
         <section id="foundry">
           <h2>Foundry</h2>
 
-          <p>The Foundry tab helps you plan builds. Items are organized into categories:</p>
+          <p>The Foundry tab lets you browse every craftable item in the game and track what you need to build it.</p>
+
+          <h3>Component status</h3>
           <ul>
-            <li>Warframes</li>
-            <li>Primary weapons</li>
-            <li>Secondary weapons</li>
-            <li>Melee weapons</li>
-            <li>Companions</li>
-            <li>Archwing</li>
+            <li><span class="colour-swatch gold-swatch"></span> <strong>Gold (✓)</strong> — you own the built component or already have it.</li>
+            <li><span class="colour-swatch blue-swatch"></span> <strong>Blue (BP)</strong> — you have the blueprint but not the built component.</li>
+            <li><span class="colour-swatch dark-swatch"></span> <strong>Dark</strong> — you're missing both.</li>
           </ul>
 
-          <h3>Component status colours</h3>
+          <h3>Relic source icons</h3>
+          <p>If a missing component drops from a relic <em>you currently own</em>, a relic icon appears next to it so you know exactly which relic to run.</p>
+
+          <h3>Additional indicators</h3>
           <ul>
-            <li><span class="colour-swatch gold-swatch"></span> <strong>Gold</strong> — you own this component or already have it built.</li>
-            <li><span class="colour-swatch blue-swatch"></span> <strong>Blue</strong> — you have the blueprint but not the component itself.</li>
-            <li><span class="colour-swatch dark-swatch"></span> <strong>Dark</strong> — you're missing both the component and the blueprint.</li>
+            <li><strong>Vault badge</strong> — 🔒 Vaulted / 🔓 Available based on the current drop table</li>
+            <li><strong>Helminth icon</strong> — shown on warframes that can be subsumed</li>
+            <li><strong>Archon Shard slots</strong> — shows shard count, colour, and Tau-forged status per warframe</li>
+            <li><strong>⚒ Crafting indicator</strong> — shown if a component is currently building</li>
           </ul>
 
-          <h3>Relic indicators</h3>
-          <p>If a missing component can be obtained from a relic <em>you currently own</em>, a relic icon appears next to it. This makes it easy to prioritise which relics to run.</p>
+          <p>To track a build, star (★) it in the Foundry — it will appear in the <a href="#modular-window">Modular Window</a> with a live shortage breakdown.</p>
+        </section>
 
-          <h3>Tracking panel</h3>
-          <p>Click any item to open a tracking panel showing every required component and its status. Use the <strong>Missing only</strong> toggle to focus on what you still need.</p>
+        <hr class="docs-divider">
+
+        <!-- Modular Window -->
+        <section id="modular-window">
+          <h2>Modular Window</h2>
+
+          <p>The Modular Window is a customisable sidebar panel on the right side of the app. It has two sections:</p>
+          <ul>
+            <li><strong>Favourites</strong> — star any item in the Inventory tab to pin it here for quick reference.</li>
+            <li><strong>Tracked items</strong> — star any item in the Foundry to track its build here. Shows all required components, how many you have, and how many you still need. Toggle between <em>Missing only</em> and <em>All</em> views.</li>
+          </ul>
+
+          <h3>Customisation</h3>
+          <ul>
+            <li>Drag items within sections to reorder them</li>
+            <li>Collapse / expand individual sections</li>
+            <li>Resize the panel by dragging its edge (160–500 px wide)</li>
+            <li>Detach it into a separate floating window via Settings → Modular Window → Pop-out</li>
+          </ul>
         </section>
 
         <hr class="docs-divider">
@@ -164,27 +208,32 @@
         <section id="ocr-overlay">
           <h2>OCR Reward Overlay</h2>
 
-          <p>When a void fissure reward screen opens in Warframe, FrameForge automatically detects it and displays a small overlay showing each of the four reward cards with:</p>
+          <p>When a void fissure reward screen opens in Warframe, FrameForge automatically captures and reads the reward cards and displays a transparent overlay — no alt-tab, no interruption.</p>
+
+          <h3>What the overlay shows per card</h3>
           <ul>
             <li>Item name</li>
-            <li>Current platinum sell price (from warframe.market)</li>
+            <li>Platinum sell price (from warframe.market)</li>
             <li>Ducat value</li>
-            <li>Set completion status — whether you need it for a build</li>
+            <li>🔒 vaulted indicator if applicable</li>
+            <li>Set completion grid — which components of the set you own and which you're missing</li>
+            <li>A <strong>yellow arrow</strong> pointing to the recommended card based on your chosen priority mode</li>
           </ul>
 
-          <p>This lets you pick the best reward instantly without alt-tabbing out of the game.</p>
+          <h3>Pick priority modes</h3>
+          <p>Set your preferred priority in <strong>Settings → Relic Overlay</strong>:</p>
+          <ul>
+            <li><strong>Item Completion</strong> (default) — picks the card most needed to complete a set you're building</li>
+            <li><strong>Most Set Value (plat)</strong> — picks the card worth most when you complete the whole set</li>
+            <li><strong>Most Plat (item)</strong> — picks the card with the highest individual platinum value</li>
+            <li><strong>Most Ducats</strong> — picks the card with the highest ducat value</li>
+          </ul>
 
-          <h3>How it works</h3>
-          <ol>
-            <li>FrameForge monitors <code>EE.log</code> for the void reward screen marker.</li>
-            <li>After a short delay for the card fade-in animation, it captures the top portion of the Warframe window.</li>
-            <li>Windows OCR reads the text from each card slot.</li>
-            <li>Rarity bar colour analysis classifies each reward as Bronze / Silver / Gold / Platinum.</li>
-            <li>The overlay appears with prices and ducat values ranked by value.</li>
-          </ol>
+          <h3>Display modes</h3>
+          <p>The overlay uses <strong>PrintWindow</strong> (GDI) capture for Windowed and Borderless Windowed modes, and <strong>DXGI Desktop Duplication</strong> for Fullscreen Exclusive. Both are detected automatically.</p>
 
-          <div class="callout callout-info">
-            <strong>Best results:</strong> The overlay works in Windowed and Borderless Windowed mode. Fullscreen Exclusive is also supported via DXGI capture.
+          <div class="callout callout-warning">
+            <strong>Known edge cases:</strong> Rarity bar detection can occasionally miscount cards in unusual screen configurations or when other overlays interfere. The overlay also supports solo fissure missions (1 reward card). If you see incorrect results, check the session log in Settings → Support.
           </div>
         </section>
 
@@ -194,11 +243,22 @@
         <section id="market-helper">
           <h2>Market Helper</h2>
 
-          <p>The Market Helper lets you look up live platinum sell prices for any item or prime set, sourced from the public <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> v2 API.</p>
+          <p>The Market tab shows every Prime set with live data from <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a>. For each set you can see:</p>
           <ul>
-            <li>Prices are fetched on demand — no account required.</li>
-            <li>No data about you is sent anywhere; requests go directly from your machine to warframe.market (the same as visiting the website in a browser).</li>
+            <li>Total set platinum value</li>
+            <li>Per-part platinum price and ducat value</li>
+            <li>How many of each part you own (including duplicates)</li>
+            <li>Set completion percentage</li>
           </ul>
+
+          <h3>Filters and sort</h3>
+          <ul>
+            <li><strong>Filters:</strong> Has parts, Has duplicates, Complete sets, Fully owned</li>
+            <li><strong>Sort:</strong> Name, Ducats (owned parts), Ducats (all parts), Completion %</li>
+            <li><strong>Search:</strong> by set name</li>
+          </ul>
+
+          <p>Prices are cached for 1 hour and fetched fresh on the next app launch or manual refresh. No account required — requests go directly to the warframe.market public API.</p>
         </section>
 
         <hr class="docs-divider">
@@ -207,35 +267,38 @@
         <section id="relic-helper">
           <h2>Relic Helper</h2>
 
-          <p>The Relic Helper lets you browse void fissure drop tables and work out the most efficient relics to run for prime parts you're still missing.</p>
+          <p>The Relics tab shows every relic you own with its full reward table. For each reward slot you can see:</p>
           <ul>
-            <li>Drop rate data comes from community-maintained sources.</li>
-            <li>Cross-referenced with your current inventory so you can focus only on parts you don't have.</li>
+            <li>Item name and image</li>
+            <li>Rarity (Common / Uncommon / Rare) colour-coded as Bronze / Silver / Gold</li>
+            <li>Whether you own the item (✓) or have completed the full set (✓✓)</li>
+            <li>Platinum price and ducat value</li>
           </ul>
+
+          <p>Per-refinement counts (Intact, Exceptional, Flawless, Radiant) are shown for each relic so you know how many of each tier you have to spend.</p>
+
+          <h3>Colourblind mode</h3>
+          <p>Enable <strong>Settings → Colourblind mode</strong> to add text labels alongside the rarity colours.</p>
+
+          <p>Drop rate data is sourced from the community-maintained <a href="https://github.com/WFCD/warframe-items" target="_blank" rel="noopener">WFCD</a> dataset and cached for 24 hours.</p>
         </section>
 
         <hr class="docs-divider">
 
-        <!-- Mastery Rank -->
-        <section id="mastery-rank">
-          <h2>Mastery Rank</h2>
+        <!-- Settings -->
+        <section id="settings">
+          <h2>Settings</h2>
 
-          <p>Your current Mastery Rank is displayed as a gold badge in the app header. It's read from the <code>PlayerLevel</code> field in game memory during each scan cycle, so it always reflects your live rank.</p>
-        </section>
-
-        <hr class="docs-divider">
-
-        <!-- Vault Status -->
-        <section id="vault-status">
-          <h2>Vault Status</h2>
-
-          <p>Every prime item in the Foundry shows a vault badge:</p>
           <ul>
-            <li><strong>🔒 Vaulted</strong> — parts are currently unavailable in the standard relic drop table.</li>
-            <li><strong>🔓 Available</strong> — parts can be obtained from active relics right now.</li>
+            <li><strong>Relic Overlay</strong> — enable/disable the OCR overlay and choose your pick priority mode</li>
+            <li><strong>Colourblind mode</strong> — adds text labels to rarity colour indicators throughout the app</li>
+            <li><strong>Text size</strong> — scale the UI between 80% and 140%</li>
+            <li><strong>Modular Window</strong> — toggle pop-out mode to detach the side panel into a floating window</li>
+            <li><strong>Account connection</strong> — manual Account ID + Nonce fields for Xbox/PlayStation players</li>
+            <li><strong>Data</strong> — refresh item database, clear cached prices</li>
+            <li><strong>Support</strong> — view the overlay session log for debugging OCR issues</li>
+            <li><strong>About</strong> — version number and update check (compares against GitHub releases)</li>
           </ul>
-
-          <p>Vault data comes from the <a href="https://github.com/WFCD/warframe-items" target="_blank" rel="noopener">WFCD warframe-items</a> dataset and is bundled with each FrameForge release.</p>
         </section>
 
         <hr class="docs-divider">
@@ -252,28 +315,38 @@
           </div>
 
           <div class="faq-item">
+            <h3>Does FrameForge track mods and arcanes?</h3>
+            <p>Yes — mods and arcanes appear in the Inventory tab with per-rank copy counts when the Warframe API connection is active. Without the API, basic quantities are still available from the memory scanner.</p>
+          </div>
+
+          <div class="faq-item">
             <h3>Why doesn't my inventory update when I press ESC?</h3>
-            <p>The in-game ESC menu doesn't reliably put inventory data into memory in a scannable state. Return to your Orbiter after a mission or relay visit for the most consistent results.</p>
+            <p>The ESC menu doesn't reliably put inventory data into memory in a scannable state. Return to your Orbiter after a mission or relay visit for the most consistent results.</p>
           </div>
 
           <div class="faq-item">
-            <h3>Will you add mods or arcanes?</h3>
-            <p>Not currently. Relay data contaminates small mod counts, making accurate tracking unreliable. It may be revisited in a future version.</p>
+            <h3>The OCR overlay showed the wrong item — what happened?</h3>
+            <p>The overlay uses Windows OCR and fuzzy text matching, which works well in most cases but can occasionally misread items — especially with diacritics or non-English text. If this happens, check the session log in Settings → Support and open a GitHub issue with the log attached.</p>
           </div>
 
           <div class="faq-item">
-            <h3>Will you add trading or market features?</h3>
-            <p>Not planned. FrameForge focuses on inventory and crafting. For trading, check out <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a>.</p>
+            <h3>Will you add trading features?</h3>
+            <p>Yes, trading features are planned for a future release.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Does it work on console (Xbox / PlayStation)?</h3>
+            <p>The app itself is Windows-only, but console players who play on PC can connect their account manually via Settings → Account connection using their Account ID and Nonce.</p>
           </div>
 
           <div class="faq-item">
             <h3>Can I use FrameForge on Linux or Mac?</h3>
-            <p>No. FrameForge uses Windows-specific APIs and is only supported on Windows 10 / 11.</p>
+            <p>No. FrameForge uses Windows-specific APIs (<code>ReadProcessMemory</code>, WinRT OCR, DXGI) and is only supported on Windows 10 / 11.</p>
           </div>
 
           <div class="faq-item">
             <h3>How do I report a bug?</h3>
-            <p>Open an issue on the <a href="https://github.com/Sikewyrm/FrameForge/issues" target="_blank" rel="noopener">GitHub Issues page</a>. Include your Windows version and a description of what happened.</p>
+            <p>Open an issue on the <a href="https://github.com/Sikewyrm/FrameForge/issues" target="_blank" rel="noopener">GitHub Issues page</a>. Include your Windows version, a description of what happened, and the overlay session log from Settings → Support if it's an OCR issue.</p>
           </div>
         </section>
 
@@ -284,11 +357,12 @@
           <h2>Known Limitations</h2>
 
           <ul>
-            <li><strong>Mods and arcanes</strong> — not tracked; relay data contaminates small counts.</li>
-            <li><strong>Mission rewards</strong> — in-mission reward format is not yet identified; only post-mission inventory changes are captured.</li>
+            <li><strong>Mission rewards (mid-mission)</strong> — in-mission reward data format is not identified; only post-mission inventory changes are captured when you return to the Orbiter.</li>
             <li><strong>Rivens</strong> — not tracked.</li>
-            <li><strong>Sold item mastery</strong> — mastery from sold items would require account API authentication, which is not implemented.</li>
-            <li><strong>Slow first scan</strong> — the first scan after launch may take up to 90 seconds on debug builds. Release builds are significantly faster.</li>
+            <li><strong>Sold item mastery</strong> — mastery XP from items sold before connecting the API is not recoverable without the API.</li>
+            <li><strong>Multi-monitor setups</strong> — DXGI capture targets the monitor containing the Warframe window, but unusual configurations may cause the OCR overlay to appear on the wrong display.</li>
+            <li><strong>Non-English clients</strong> — the OCR fuzzy matcher works best with English item names; other languages may produce less accurate results.</li>
+            <li><strong>Linux / Mac</strong> — not supported; depends on Windows-only APIs.</li>
           </ul>
         </section>
 

@@ -6,7 +6,14 @@
       "Bash(gh api *)",
       "Bash(powershell -command \"[System.Text.Encoding]::UTF8.GetString\\([System.Convert]::FromBase64String\\(\\(Get-Content -Raw -\\)\\)\\)\")",
       "Bash(ls \"C:\\\\Users\\\\Jochem\\\\Desktop\\\\FrameForge Images\")",
-      "Read(//c/Users/Jochem/Desktop/FrameForge Images/**)"
+      "Read(//c/Users/Jochem/Desktop/FrameForge Images/**)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Jochem\\\\Desktop\\\\warframe-companion\" -Recurse -Depth 2)",
+      "Bash(Select-Object FullName)",
+      "Read(//c/Users/Jochem/Desktop/warframe-companion/**)",
+      "Bash(ls \"C:\\\\Users\\\\Jochem\\\\.claude\\\\projects\\\\c--Users-Jochem-Desktop-warframe-companion\")",
+      "Read(//c/Users/Jochem/.claude/projects/c--Users-Jochem-Desktop-warframe-companion/**)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Jochem\\\\.claude\\\\projects\\\\c--Users-Jochem-Desktop-warframe-companion\" -Filter \"*.jsonl\")",
+      "Bash(Select-Object -ExpandProperty FullName)"
     ]
   }
 }
