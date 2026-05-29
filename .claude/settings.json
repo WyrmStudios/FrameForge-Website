@@ -14,6 +14,10 @@
       "Read(//c/Users/Jochem/.claude/projects/c--Users-Jochem-Desktop-warframe-companion/**)",
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Jochem\\\\.claude\\\\projects\\\\c--Users-Jochem-Desktop-warframe-companion\" -Filter \"*.jsonl\")",
       "Bash(Select-Object -ExpandProperty FullName)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Jochem\\Desktop\\warframe-companion\\src",
+      "C:\\Users\\Jochem\\Desktop\\warframe-companion\\src-tauri\\src"
     ]
   }
 }

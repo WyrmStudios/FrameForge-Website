@@ -77,13 +77,13 @@
           <ul>
             <li>Windows 10 or Windows 11 (64-bit)</li>
             <li>Warframe — Steam or standalone client</li>
-            <li>No administrator privileges required at runtime</li>
+            <li>Typically requires no administrator privileges at runtime, though some system configurations may prompt for elevated access when reading game memory.</li>
           </ul>
 
           <h3>Steps</h3>
           <ol>
             <li>Go to the <a href="https://github.com/Sikewyrm/FrameForge/releases/latest" target="_blank" rel="noopener">latest release</a> on GitHub.</li>
-            <li>Download <code>FrameForge_1.0.1_x64-setup.exe</code>.</li>
+            <li>Download <code>FrameForge_x64-setup.exe</code>.</li>
             <li>Run the installer and follow the prompts.</li>
             <li>Launch FrameForge from the Start menu or desktop shortcut.</li>
           </ol>
@@ -186,19 +186,14 @@
         <section id="modular-window">
           <h2>Modular Window</h2>
 
-          <p>The Modular Window is a customisable sidebar panel on the right side of the app. It has two sections:</p>
+          <p>The Modular Window has four reorderable sections:</p>
           <ul>
-            <li><strong>Favourites</strong> — star any item in the Inventory tab to pin it here for quick reference.</li>
-            <li><strong>Tracked items</strong> — star any item in the Foundry to track its build here. Shows all required components, how many you have, and how many you still need. Toggle between <em>Missing only</em> and <em>All</em> views.</li>
+            <li><strong>Tracking</strong> — crafting items starred in the Foundry, with per-item ingredient requirements and a Missing / All toggle.</li>
+            <li><strong>Favorites</strong> — inventory items starred from the Inventory tab, shown with live quantities.</li>
+            <li><strong>Timers</strong> — countdowns pinned from the Timers tab.</li>
+            <li><strong>Watched Fissures</strong> — live void fissures matching your configured fissure watches.</li>
           </ul>
-
-          <h3>Customisation</h3>
-          <ul>
-            <li>Drag items within sections to reorder them</li>
-            <li>Collapse / expand individual sections</li>
-            <li>Resize the panel by dragging its edge (160–500 px wide)</li>
-            <li>Detach it into a separate floating window via Settings → Modular Window → Pop-out</li>
-          </ul>
+          <p>All sections can be collapsed and reordered with up/down arrow buttons. The panel can be resized between 160 and 500 pixels wide, or detached as a floating popup window via Settings.</p>
         </section>
 
         <hr class="docs-divider">
@@ -288,20 +283,41 @@
         <section id="timers">
           <h2>Timers</h2>
 
-          <p>The Timers tab shows live countdowns for all time-sensitive game events, updated automatically. It's split into sections:</p>
+          <p>The Timers tab fetches live data from the official Warframe worldstate and refreshes every 60 seconds.</p>
+
+          <h3>World Cycles</h3>
+          <p>Cetus (Day/Night), Orb Vallis (Warm/Cold), Cambion Drift, and Zariman — each showing the current state and countdown to the next change.</p>
+
+          <h3>Bounties</h3>
+          <p>Reset timers for each open world: Cetus, Orb Vallis, Cambion Drift, Zariman, and Hex.</p>
 
           <h3>Daily &amp; Weekly</h3>
           <ul>
-            <li><strong>Events</strong> — Baro Ki'Teer arrival countdown, Nightwave season, Darvo daily deal, and any active limited-time events</li>
-            <li><strong>Alerts</strong> — active alert missions with faction, node, time remaining, and reward</li>
-            <li><strong>Invasions</strong> — active invasion nodes with faction matchup, completion progress, and rewards</li>
+            <li><strong>Daily Reset</strong> and <strong>Weekly Reset</strong> countdowns</li>
+            <li><strong>Sortie</strong> — expandable with all three missions and their modifiers</li>
+            <li><strong>Archon Hunt</strong> — expandable with mission list</li>
+            <li><strong>The Circuit</strong> — expandable with current Normal frame picks and Hard weapon picks</li>
+            <li><strong>Deep Archimedea</strong> and <strong>Kahl / Break Narmer</strong> — weekly reset countdowns</li>
           </ul>
 
+          <h3>Events</h3>
+          <ul>
+            <li><strong>Baro Ki'Teer</strong> — arrival or departure countdown, with expandable inventory showing Ducat and Credit prices and Owned badges when he is present</li>
+            <li><strong>Prime Resurgence</strong> — countdown with expandable inventory showing Aya prices and Owned badges</li>
+            <li><strong>Nightwave</strong>, <strong>Darvo daily deal</strong>, and active community events</li>
+          </ul>
+
+          <h3>Alerts &amp; Invasions</h3>
+          <p>Each alert shows mission type, faction, reward, and countdown. Each invasion shows a progress bar, attacker and defender factions, and their respective rewards.</p>
+
           <h3>Void Fissures</h3>
-          <p>All currently active void fissures listed with tier (Lith / Meso / Neo / Axi), mission type, faction, node, and time until expiry. Filterable by Normal, Steel Path, and Storms.</p>
+          <p>Three tabs — Normal, Steel Path, and Void Storms — displayed as a grid of tiles with tier, mission type, faction, node, and countdown. Fissures matching a saved watch are highlighted in blue.</p>
+
+          <h3>Fissure Watches</h3>
+          <p>Configure a Mode + Tier + Mission Type filter. Matching fissures are highlighted in the fissure list and automatically shown in the Modular Window's Watched Fissures section.</p>
 
           <h3>Pinning timers</h3>
-          <p>Star (☆) any timer to pin it to the <strong>Timers</strong> section of the Modular Window so it's always visible alongside your inventory or foundry tracking.</p>
+          <p>Star (☆) any timer row to pin it to the <strong>Timers</strong> section of the Modular Window for at-a-glance viewing.</p>
         </section>
 
         <hr class="docs-divider">
@@ -331,7 +347,7 @@
           <div class="faq-item">
             <h3>Is FrameForge safe to use?</h3>
             <p>FrameForge is strictly read-only. It uses <code>ReadProcessMemory</code> — the same Windows API used by Overwolf and hardware monitors. It never writes to memory, injects code, or hooks the game in any way.</p>
-            <p>Network requests go only to <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (for prices) and community GitHub repos (item catalog, drop rates). There is no FrameForge server, no telemetry, and nothing leaves your machine beyond those two sources.</p>
+            <p>Network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (item prices), the official Warframe worldstate API (timer and event data), and several WFCD community GitHub repositories (item catalog, recipe data, drop rates, localisation strings). Item thumbnails load from the Warframe CDN. No FrameForge server exists and no telemetry is collected.</p>
             <p>Digital Extremes has historically permitted read-only companion tools. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
           </div>
 
