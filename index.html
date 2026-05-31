@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FrameForge — Free, open-source Warframe companion app. Live inventory, foundry tracker, market prices, relic helper, and OCR reward overlay.">
+  <meta name="description" content="FrameForge — Free, open-source Warframe companion app. Live inventory, foundry tracker, warframe.market trading, relic helper, timers, and OCR reward overlay.">
   <title>FrameForge — Warframe Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,14 +45,15 @@
             <span class="accent">built for Tenno.</span>
           </h1>
           <p class="hero-subtitle">
-            Live inventory, foundry tracking, market prices, relic planning, and an OCR overlay
-            that reads your reward screen for you — all read-only, all free, all open source.
+            A desktop companion for Warframe that shows your live inventory, tracks crafting
+            recipes, manages your warframe.market trading, runs a live timer dashboard, and
+            auto-detects relic reward screens — all free, all open source.
           </p>
           <div class="hero-actions">
             <a href="#download" class="btn-primary">Download for Windows</a>
             <a href="docs.html" class="btn-outline">Read the docs →</a>
           </div>
-          <p class="hero-note">Free and open source. No account required.</p>
+          <p class="hero-note">Free and open source. No account required for most features.</p>
         </div>
         <div class="hero-visual">
           <img src="assets/inventory.png" alt="FrameForge inventory view" class="hero-screenshot">
@@ -86,7 +87,12 @@
           <div class="feature-card">
             <div class="feature-icon">💰</div>
             <h3>Market Helper</h3>
-            <p>Browse every Prime set with live platinum prices from warframe.market, ducat values per part, and a set completion tracker so you know what to sell and what to keep.</p>
+            <p>Browse every Prime set with live platinum prices from warframe.market, ducat values per part, and a set completion tracker. Click any set or part to open a live order popup with current sell/buy orders, a 3-week price history chart, and a one-click listing form.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>Trading</h3>
+            <p>Log in to warframe.market to manage your active listings, post new sell and buy orders directly from any prime set, receive incoming trade whispers in-app, and set your online status — all without leaving FrameForge.</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">💎</div>
@@ -114,6 +120,8 @@
           <button class="stab" data-target="ss-market">Market Helper</button>
           <button class="stab" data-target="ss-relic">Relic Helper</button>
           <button class="stab" data-target="ss-timers">Timers</button>
+          <button class="stab" data-target="ss-trade">Trading</button>
+          <button class="stab" data-target="ss-order">Order Book</button>
           <button class="stab" data-target="ss-overlay">OCR Overlay</button>
         </div>
         <div class="stab-panels">
@@ -131,6 +139,13 @@
           </div>
           <div class="stab-panel" id="ss-timers">
             <img src="assets/timers.png" alt="FrameForge timers tab">
+          </div>
+          <div class="stab-panel" id="ss-trade">
+            <img src="assets/trade-screen.png" alt="FrameForge trading tab — active listings">
+          </div>
+          <div class="stab-panel" id="ss-order">
+            <img src="assets/trade-order.png" alt="FrameForge order book popup">
+            <p class="screenshot-caption">Click any prime set or part to open the live order book with current prices, a 3-week history chart, and a one-click listing form.</p>
           </div>
           <div class="stab-panel" id="ss-overlay">
             <img src="assets/relic-overlay.png" alt="FrameForge OCR reward overlay in-game">

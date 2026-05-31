@@ -49,6 +49,7 @@
           <a href="#modular-window" class="sidebar-link">Modular Window</a>
           <a href="#ocr-overlay" class="sidebar-link">OCR Reward Overlay</a>
           <a href="#market-helper" class="sidebar-link">Market Helper</a>
+          <a href="#trading" class="sidebar-link">Trading</a>
           <a href="#relic-helper" class="sidebar-link">Relic Helper</a>
           <a href="#timers" class="sidebar-link">Timers</a>
           <a href="#settings" class="sidebar-link">Settings</a>
@@ -257,6 +258,34 @@
 
         <hr class="docs-divider">
 
+        <!-- Trading -->
+        <section id="trading">
+          <h2>Trading</h2>
+
+          <p>The Trading tab connects FrameForge to your warframe.market account so you can manage listings and receive trade whispers without leaving the app.</p>
+
+          <div class="callout callout-info">
+            <strong>Account required:</strong> Trading features require a <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> account. All other FrameForge features — Inventory, Foundry, Market prices, Relics, and Timers — work without any account.
+          </div>
+
+          <h3>Logging in</h3>
+          <p>Enter your warframe.market email and password directly in the Trading tab — no browser redirect needed. Enable <strong>Stay logged in</strong> to save your session token to Windows Credential Manager. Your password is never stored.</p>
+
+          <h3>Active Listings</h3>
+          <p>View all your current sell and buy orders in one place. Edit the price or quantity of any listing, or delete it, without opening the warframe.market website.</p>
+
+          <h3>Posting new orders</h3>
+          <p>Click any prime set or individual part in the Market Helper tab to open a live order panel. From there you can see current sell and buy orders, a 3-week price history chart, and post a new listing with one click.</p>
+
+          <h3>Trade Whispers</h3>
+          <p>Incoming trade offers from warframe.market appear in the Messages tab, captured from your game's chat log via <code>EE.log</code>. One click copies a party invite to your clipboard, and you can mark the trade as sold directly from the message.</p>
+
+          <h3>WFM Status</h3>
+          <p>Set your warframe.market status — <strong>Online</strong>, <strong>In Game</strong>, or <strong>Invisible</strong> — from the Trading tab header. This controls your visibility to buyers and sellers on the site.</p>
+        </section>
+
+        <hr class="docs-divider">
+
         <!-- Relic Helper -->
         <section id="relic-helper">
           <h2>Relic Helper</h2>
@@ -347,8 +376,8 @@
           <div class="faq-item">
             <h3>Is FrameForge safe to use?</h3>
             <p>FrameForge is strictly read-only. It uses <code>ReadProcessMemory</code> — the same Windows API used by Overwolf and hardware monitors. It never writes to memory, injects code, or hooks the game in any way.</p>
-            <p>Network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (item prices), the official Warframe worldstate API (timer and event data), and several WFCD community GitHub repositories (item catalog, recipe data, drop rates, localisation strings). Item thumbnails load from the Warframe CDN. No FrameForge server exists and no telemetry is collected.</p>
-            <p>Digital Extremes has historically permitted read-only companion tools. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
+            <p>Network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (prices, trading orders, and online status via WebSocket), the DE Warframe worldstate API (timers and events), WFCD community GitHub repositories (item catalog, recipe data, drop rates, localisation strings), and the Warframe CDN (item images). No FrameForge server exists and no telemetry is collected.</p>
+            <p>Digital Extremes has historically permitted read-only companion tools. No account is required for inventory, Foundry, Market prices, Relics, or Timers. A warframe.market account is only needed for trading features. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
           </div>
 
           <div class="faq-item">
