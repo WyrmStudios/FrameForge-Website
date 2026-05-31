@@ -52,6 +52,7 @@
           <a href="#trading" class="sidebar-link">Trading</a>
           <a href="#relic-helper" class="sidebar-link">Relic Helper</a>
           <a href="#timers" class="sidebar-link">Timers</a>
+          <a href="#statistics" class="sidebar-link">Statistics</a>
           <a href="#settings" class="sidebar-link">Settings</a>
         </div>
         <div class="sidebar-group">
@@ -351,6 +352,52 @@
 
         <hr class="docs-divider">
 
+        <!-- Statistics -->
+        <section id="statistics">
+          <h2>Statistics</h2>
+
+          <p>The Statistics tab has two sub-tabs: <strong>Trades</strong> and <strong>Reports</strong>.</p>
+
+          <h3>Trades</h3>
+          <p>Every completed in-game trade is detected automatically from Warframe's <code>EE.log</code> the moment the "Trade was successful!" message appears — no manual input needed. warframe.market trades are logged automatically when you click the <strong>Sold</strong> button in the Messages tab. A manual entry form is also available for any trade not captured automatically.</p>
+
+          <p>Each trade records:</p>
+          <ul>
+            <li>Item name (including mod rank, e.g. "Serration (R10)")</li>
+            <li>Quantity and platinum per item</li>
+            <li>Trading partner's in-game name</li>
+            <li>Direction — sold or bought</li>
+            <li>Source — in-game, warframe.market, or manual</li>
+            <li>Timestamp</li>
+          </ul>
+
+          <p>Trade history is stored locally in your FrameForge SQLite database at <code>%LOCALAPPDATA%\warframe-companion\</code> and is never uploaded or shared.</p>
+
+          <h3>Reports</h3>
+          <p>The Reports tab turns your trade history into an analytics dashboard. Use the date range filter to scope everything to <strong>Today</strong>, <strong>7 Days</strong>, <strong>30 Days</strong>, <strong>90 Days</strong>, <strong>Year to Date</strong>, <strong>1 Year</strong>, or <strong>All Time</strong>. All charts and tables update instantly.</p>
+
+          <h4>KPI cards</h4>
+          <ul>
+            <li><strong>Total Earned</strong> — platinum received from sales</li>
+            <li><strong>Total Spent</strong> — platinum paid for purchases</li>
+            <li><strong>Net Profit</strong> — earned minus spent, with average per trade</li>
+          </ul>
+
+          <h4>Charts</h4>
+          <ul>
+            <li><strong>Cumulative platinum line chart</strong> — your running net profit over time</li>
+            <li><strong>Daily bar chart</strong> — green bars above the midline show days you earned, red bars below show days you spent; shows your trading rhythm at a glance</li>
+          </ul>
+
+          <h4>Tables</h4>
+          <ul>
+            <li><strong>Items breakdown</strong> — every item you've traded, with sold count, bought count, average sale price, and net platinum; sorted by most profitable</li>
+            <li><strong>Top trading partners</strong> — top 10 players by total platinum exchanged</li>
+          </ul>
+        </section>
+
+        <hr class="docs-divider">
+
         <!-- Settings -->
         <section id="settings">
           <h2>Settings</h2>
@@ -376,8 +423,8 @@
           <div class="faq-item">
             <h3>Is FrameForge safe to use?</h3>
             <p>FrameForge is strictly read-only. It uses <code>ReadProcessMemory</code> — the same Windows API used by Overwolf and hardware monitors. It never writes to memory, injects code, or hooks the game in any way.</p>
-            <p>Network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (prices, trading orders, and online status via WebSocket), the DE Warframe worldstate API (timers and events), WFCD community GitHub repositories (item catalog, recipe data, drop rates, localisation strings), and the Warframe CDN (item images). No FrameForge server exists and no telemetry is collected.</p>
-            <p>Digital Extremes has historically permitted read-only companion tools. No account is required for inventory, Foundry, Market prices, Relics, or Timers. A warframe.market account is only needed for trading features. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
+            <p>Network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (prices, trading orders, and online status via WebSocket), the DE Warframe worldstate API (timers and events), WFCD community GitHub repositories (item catalog, recipe data, drop rates, localisation strings), and the Warframe CDN (item images). Warframe's <code>EE.log</code> is read locally to detect trade completions and fissure reward screens — it is never uploaded. No FrameForge server exists and no telemetry is collected.</p>
+            <p>Digital Extremes has historically permitted read-only companion tools. No account is required for inventory, Foundry, Market prices, Relics, Timers, or Statistics — trade detection and reporting work entirely from local data. A warframe.market account is only needed for trading features. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
           </div>
 
           <div class="faq-item">
