@@ -41,6 +41,7 @@
           <div class="sidebar-group-title">Getting Started</div>
           <a href="#installation" class="sidebar-link">Installation</a>
           <a href="#first-launch" class="sidebar-link">First Launch</a>
+          <a href="#companion-api" class="sidebar-link">Warframe Companion API</a>
         </div>
         <div class="sidebar-group">
           <div class="sidebar-group-title">Features</div>
@@ -112,6 +113,22 @@
 
           <h3>Warframe API connection</h3>
           <p>Basic mod and arcane counts come from memory scanning and work without any account connection. Connecting the Warframe API adds mod ranks and additional detail. Credentials are scanned automatically from game memory — no manual login needed.</p>
+        </section>
+
+        <hr class="docs-divider">
+
+        <!-- Warframe Companion API -->
+        <section id="companion-api">
+          <h2>Warframe Companion API</h2>
+
+          <p>The connection to <code>api.warframe.com/api/inventory.php</code> is <strong>disabled by default</strong>. It can be enabled in <strong>Settings → Warframe Companion API</strong>.</p>
+
+          <div class="callout callout-warning">
+            <strong>Enable at your own risk:</strong> A warning is shown before enabling this feature. Digital Extremes has not officially confirmed whether this endpoint is permitted for third-party community tools. Enabling it is entirely optional and at the user's own risk.
+          </div>
+
+          <p>When disabled (the default), all core features continue to work normally — inventory, Foundry, Market Helper, Relic Helper, Timers, and Statistics all use memory scanning or public data sources only.</p>
+          <p>When enabled, it adds mod ranks and additional inventory detail on top of what memory scanning already provides.</p>
         </section>
 
         <hr class="docs-divider">
@@ -371,6 +388,8 @@
             <li>Timestamp</li>
           </ul>
 
+          <p>Mod ranks appear as e.g. <code>Serration (R10)</code> — parsed from Warframe's trade dialog text. Arcane ranks appear as e.g. <code>Arcane Energize (R3)</code> — decoded from Unicode Private Use Area characters that Warframe embeds in the trade dialog (invisible in standard text editors but machine-readable). Trades containing multiple different items are recorded as a comma-separated list.</p>
+
           <p>Trade history is stored locally in your FrameForge SQLite database at <code>%LOCALAPPDATA%\warframe-companion\</code> and is never uploaded or shared.</p>
 
           <h3>Reports</h3>
@@ -423,8 +442,8 @@
           <div class="faq-item">
             <h3>Is FrameForge safe to use?</h3>
             <p>FrameForge is strictly read-only. It uses <code>ReadProcessMemory</code> — the same Windows API used by Overwolf and hardware monitors. It never writes to memory, injects code, or hooks the game in any way.</p>
-            <p>Network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (prices, trading orders, and online status via WebSocket), the DE Warframe worldstate API (timers and events), WFCD community GitHub repositories (item catalog, recipe data, drop rates, localisation strings), and the Warframe CDN (item images). Warframe's <code>EE.log</code> is read locally to detect trade completions and fissure reward screens — it is never uploaded. No FrameForge server exists and no telemetry is collected.</p>
-            <p>Digital Extremes has historically permitted read-only companion tools. No account is required for inventory, Foundry, Market prices, Relics, Timers, or Statistics — trade detection and reporting work entirely from local data. A warframe.market account is only needed for trading features. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
+            <p>By default, network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (prices and trading), the official Warframe worldstate CDN (timer and event data — public, no authentication), WFCD community GitHub repositories (item catalog, recipe data, localisation), and the Warframe CDN (item images). Warframe's <code>EE.log</code> is read locally to detect trades and fissure reward screens — it is never uploaded. The Warframe Companion API (<code>api.warframe.com/api/inventory.php</code>) is only contacted if you explicitly enable it in Settings. No FrameForge server exists and no telemetry is collected.</p>
+            <p>Digital Extremes has historically permitted read-only companion tools. No account is required for any feature by default — inventory, Foundry, Market prices, Relics, Timers, and Statistics all work without any login. The optional Warframe Companion API (disabled by default) requires a Warframe account but is entirely opt-in. A warframe.market account is needed only for trading features. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
           </div>
 
           <div class="faq-item">
