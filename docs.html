@@ -422,7 +422,7 @@
           <p>Trade history is stored locally in your FrameForge SQLite database at <code>%LOCALAPPDATA%\warframe-companion\</code> and is never uploaded or shared.</p>
 
           <h3>Reports</h3>
-          <p>The Reports tab turns your trade history into an analytics dashboard. Use the date range filter to scope everything to <strong>Today</strong>, <strong>7 Days</strong>, <strong>30 Days</strong>, <strong>90 Days</strong>, <strong>Year to Date</strong>, <strong>1 Year</strong>, or <strong>All Time</strong>. All charts and tables update instantly.</p>
+          <p>The Reports tab turns your trade history into an analytics dashboard. Use the date range filter to scope everything to <strong>7 Days</strong>, <strong>30 Days</strong>, <strong>90 Days</strong>, or <strong>All Time</strong>. All charts and tables update instantly.</p>
 
           <h4>KPI cards</h4>
           <ul>
@@ -442,6 +442,17 @@
             <li><strong>Items breakdown</strong> — every item you've traded, with sold count, bought count, average sale price, and net platinum; sorted by most profitable</li>
             <li><strong>Top trading partners</strong> — top 10 players by total platinum exchanged</li>
           </ul>
+
+          <h3>Item Report</h3>
+          <p>The Item Report tab lets you track how your inventory quantity changes over time for any item in the game. Search for any item by name, pin it, and FrameForge will record a daily snapshot of its quantity each time the app is running.</p>
+          <p>Each tracked item card shows:</p>
+          <ul>
+            <li>A <strong>quantity sparkline</strong> — a line chart of your stock over the selected period</li>
+            <li><strong>Current</strong> — your latest recorded quantity</li>
+            <li><strong>Avg/day</strong> — average daily change (gain shown in green, loss in red)</li>
+            <li><strong>Period total</strong> — net gain or loss over the selected timeframe</li>
+          </ul>
+          <p>Each card has its own timeframe filter: <strong>7d</strong>, <strong>30d</strong>, <strong>90d</strong>, or <strong>All</strong>. Cards can be removed at any time, which also clears that item's snapshot history.</p>
         </section>
 
         <hr class="docs-divider">
@@ -514,7 +525,6 @@
 
           <ul>
             <li><strong>Mission rewards (mid-mission)</strong> — in-mission reward data format is not identified; API data is only updated after a mission.</li>
-            <li><strong>Rivens</strong> — not tracked.</li>
             <li><strong>Multi-monitor setups</strong> — DXGI capture targets the monitor containing the Warframe window, but unusual configurations may cause the OCR overlay to appear on the wrong display.</li>
             <li><strong>Non-English clients</strong> — the OCR fuzzy matcher works best with English item names; other languages may produce less accurate results.</li>
             <li><strong>Linux / Mac</strong> — not supported; depends on Windows-only APIs.</li>
