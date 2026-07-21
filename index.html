@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FrameForge — Free, open-source Warframe companion app. Live inventory, foundry tracker, warframe.market trading, relic helper, timers, and OCR reward overlay.">
+  <meta name="description" content="FrameForge — a free, open-source Warframe companion app. Live inventory, market prices, relic helper, Foundry browser, OCR reward overlay, riven analyser and more.">
   <title>FrameForge — Warframe Companion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,7 @@
 </head>
 <body>
 
+  <!-- Nav -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -22,8 +23,8 @@
       <div class="nav-links">
         <a href="docs.html">Docs</a>
         <a href="#features">Features</a>
-        <a href="legal.html">Legal</a>
-        <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a>
+        <a href="disclosure.html">Disclosure</a>
+        <a href="https://github.com/WyrmStudios/FrameForge" target="_blank" rel="noopener">GitHub</a>
       </div>
       <div class="nav-social">
         <a href="https://discord.com/invite/7NMsN9J8vy" target="_blank" rel="noopener" class="btn-discord">Discord</a>
@@ -33,198 +34,230 @@
     </div>
   </nav>
 
-  <main>
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-inner">
-        <div class="hero-text">
-          <div class="hero-badge">Open Source · Free · Windows</div>
-          <h1 class="hero-title">
-            Your Warframe companion,<br>
-            <span class="accent">built for Tenno.</span>
-          </h1>
-          <p class="hero-subtitle">
-            A desktop companion for Warframe that shows your live inventory, tracks crafting
-            recipes, manages your warframe.market trading, runs a live timer dashboard, and
-            auto-detects relic reward screens — all free, all open source.
-          </p>
-          <div class="hero-actions">
-            <a href="#download" class="btn-primary">Download for Windows</a>
-            <a href="docs.html" class="btn-outline">Read the docs →</a>
-          </div>
-          <p class="hero-note">Free and open source. No account required for most features.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">Free &amp; Open Source · Windows</div>
+        <h1 class="hero-title">Your Warframe.<br>Fully Understood.</h1>
+        <p class="hero-subtitle">Live inventory tracking, market pricing, relic drop helper, Foundry browser, OCR reward overlay, riven analyser and more — all in one lightweight desktop app.</p>
+        <div class="hero-actions">
+          <a href="#download" class="btn-primary">Download for Windows</a>
+          <a href="https://github.com/WyrmStudios/FrameForge" target="_blank" rel="noopener" class="btn-outline">View on GitHub</a>
         </div>
-        <div class="hero-visual">
-          <img src="assets/inventory.png" alt="FrameForge inventory view" class="hero-screenshot">
-        </div>
+        <p class="hero-note">Windows 10/11 · No login required · <a href="disclosure.html" style="color:var(--accent);text-decoration:none;">Disclosure</a></p>
       </div>
-    </section>
-
-    <!-- Features -->
-    <section class="features" id="features">
-      <div class="section-inner">
-        <div class="section-header">
-          <h2>Everything you need to forge your arsenal</h2>
-          <p>FrameForge runs alongside your game and keeps you informed — no manual entry, no spreadsheets.</p>
-        </div>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">📦</div>
-            <h3>Live Inventory</h3>
-            <p>13 categories — resources, mods, arcanes, relics, weapons, Warframes, companions and more. Read directly from the game's memory every 10 seconds — no account or login required. An optional Warframe Companion API connection can be enabled in Settings for additional detail such as mod ranks, but the app works fully without it. A built-in change log tracks every quantity delta with timestamps.</p>
+      <div class="hero-visual">
+        <div class="app-preview">
+          <div class="preview-bar">
+            <div class="preview-dot red"></div>
+            <div class="preview-dot yellow"></div>
+            <div class="preview-dot green"></div>
+            <span class="preview-title">FrameForge v2.5.0</span>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">🔨</div>
-            <h3>Foundry</h3>
-            <p>Browse every craftable item with full ingredient trees. Components are colour-coded by status — owned, blueprint only, or missing — with relic source icons for anything you can farm right now.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">👁</div>
-            <h3>OCR Reward Overlay</h3>
-            <p>When a void fissure reward screen opens, FrameForge automatically reads all four cards and overlays platinum price, ducat value, set completion, and a recommended pick — without leaving the game.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💰</div>
-            <h3>Market Helper</h3>
-            <p>Browse every Prime set with live platinum prices from warframe.market, ducat values per part, and a set completion tracker. Click any set or part to open a live order popup with current sell/buy orders and a one-click listing form.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Trading</h3>
-            <p>Log in to warframe.market to manage your active listings, post new sell and buy orders directly from any prime set, receive incoming trade whispers in-app, and set your online status — all without leaving FrameForge.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💎</div>
-            <h3>Relic Helper</h3>
-            <p>See exactly what each relic can drop, colour-coded by rarity, with your ownership status and platinum value for every reward slot — so you always know which relics are worth running.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Statistics</h3>
-            <p>Two views in one tab. <strong>Reports</strong> automatically tracks every trade — in-game trades detected from the game log, warframe.market trades logged on Sold click — and shows platinum earned and spent over time, most profitable items, average sale prices, top trading partners, and a daily bar chart. <strong>Item Report</strong> lets you track any item's daily quantity over time: search for any item in the catalog, pin it, and see a sparkline of how your stock has changed with avg/day and total gain or loss. Filter both views by 7 Days, 30 Days, 90 Days, or All Time.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🔍</div>
-            <h3>Riven Analyzer</h3>
-            <p>Analyse your riven mod rolls in real time. Click Check Riven while the cycling screen is open and a floating overlay appears with per-stat quality ratings, group-based scoring, comparison mode (original roll vs new roll), and notes from the community spreadsheet. Supports 413+ weapons across all categories.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">⏱</div>
-            <h3>Timers</h3>
-            <p>Live countdowns for world cycles, bounties, daily and weekly resets, Sortie, Archon Hunt, The Circuit, Deep Archimedea, Baro Ki'Teer and Prime Resurgence (both with expandable inventories), Nightwave, Darvo deal, alerts, invasions, and all active void fissures across Normal, Steel Path, and Void Storm tabs. A fissure watch system highlights matching fissures and surfaces them in the Modular Window.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Screenshots -->
-    <section class="screenshots">
-      <div class="section-inner">
-        <div class="section-header">
-          <h2>See it in action</h2>
-        </div>
-        <div class="stab-list">
-          <button class="stab active" data-target="ss-inventory">Inventory</button>
-          <button class="stab" data-target="ss-foundry">Foundry</button>
-          <button class="stab" data-target="ss-market">Market Helper</button>
-          <button class="stab" data-target="ss-relic">Relic Helper</button>
-          <button class="stab" data-target="ss-timers">Timers</button>
-          <button class="stab" data-target="ss-trade">Trading</button>
-          <button class="stab" data-target="ss-order">Order Book</button>
-          <button class="stab" data-target="ss-riven">Riven Analyzer</button>
-          <button class="stab" data-target="ss-overlay">OCR Overlay</button>
-        </div>
-        <div class="stab-panels">
-          <div class="stab-panel active" id="ss-inventory">
-            <img src="assets/inventory.png" alt="FrameForge inventory tab">
-          </div>
-          <div class="stab-panel" id="ss-foundry">
-            <img src="assets/foundry.png" alt="FrameForge foundry tab">
-          </div>
-          <div class="stab-panel" id="ss-market">
-            <img src="assets/market.png" alt="FrameForge market helper">
-          </div>
-          <div class="stab-panel" id="ss-relic">
-            <img src="assets/relic-helper.png" alt="FrameForge relic helper">
-          </div>
-          <div class="stab-panel" id="ss-timers">
-            <img src="assets/timers.png" alt="FrameForge timers tab">
-          </div>
-          <div class="stab-panel" id="ss-trade">
-            <img src="assets/trade-screen.png" alt="FrameForge trading tab — active listings">
-          </div>
-          <div class="stab-panel" id="ss-order">
-            <img src="assets/trade-order.png" alt="FrameForge order book popup">
-            <p class="screenshot-caption">Click any prime set or part to open the live order book with current prices and a one-click listing form.</p>
-          </div>
-          <div class="stab-panel" id="ss-riven">
-            <img src="assets/riven-overlay.png" alt="FrameForge Riven Analyzer overlay" style="max-width:320px">
-            <p class="screenshot-caption">The Riven Analyzer overlay — verdict, per-stat ratings, overall score, and community "Wanted" stats for the weapon.</p>
-          </div>
-          <div class="stab-panel" id="ss-overlay">
-            <img src="assets/relic-overlay.png" alt="FrameForge OCR reward overlay in-game">
-            <p class="screenshot-caption">OCR overlay appears automatically when a void fissure reward screen opens — no alt-tab needed.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section class="how-it-works">
-      <div class="section-inner">
-        <div class="section-header">
-          <h2>Simple by design</h2>
-          <p>Get started in seconds.</p>
-        </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">1</div>
-            <div class="step-content">
-              <h3>Download and install</h3>
-              <p>Download the latest release and run the installer. No configuration needed.</p>
+          <div class="preview-content">
+            <div class="preview-header">
+              <span style="font-size:13px;font-weight:600;color:var(--text)">Inventory</span>
+              <span class="preview-status">● Live</span>
             </div>
-          </div>
-          <div class="step">
-            <div class="step-number">2</div>
-            <div class="step-content">
-              <h3>Use it — game optional</h3>
-              <p>Inventory scanning requires Warframe to be running. All other features — Foundry, Market Helper, Relic Helper, and Timers — work fully without the game.</p>
+            <div class="preview-tabs">
+              <div class="tab active">Resources</div>
+              <div class="tab">Mods</div>
+              <div class="tab">Relics</div>
             </div>
-          </div>
-          <div class="step">
-            <div class="step-number">3</div>
-            <div class="step-content">
-              <h3>Return to your Orbiter</h3>
-              <p>Inventory updates automatically every 10 seconds while the app is running.</p>
+            <div class="preview-items">
+              <div class="preview-item"><span class="item-name">Orokin Cell</span><span class="item-count">247</span></div>
+              <div class="preview-item"><span class="item-name">Platinum</span><span class="item-count gold">850</span></div>
+              <div class="preview-item"><span class="item-name">Endo</span><span class="item-count">14,320</span></div>
+              <div class="preview-item"><span class="item-name">Argon Crystal</span><span class="item-count">3</span></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Download -->
-    <section class="download" id="download">
-      <div class="section-inner">
-        <div class="download-content">
-          <h2>Ready to forge?</h2>
-          <p>Download FrameForge for Windows — free, open source, no account required.</p>
-          <div class="download-actions">
-            <a href="https://github.com/Sikewyrm/FrameForge/releases/latest" target="_blank" rel="noopener" class="btn-primary btn-large">
-              ⬇ Download FrameForge
-            </a>
-            <p class="download-note">Windows 10 / 11 &nbsp;·&nbsp; Free &amp; open source under GPLv3</p>
-          </div>
-          <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener" class="github-link">
-            View source on GitHub →
-          </a>
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Everything You Need</h2>
+        <p>Nine powerful tools in a single, lightweight app.</p>
+      </div>
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Live Inventory</h3>
+          <p>Your full Warframe inventory — resources, relics, mods, blueprints, rivens, crafting jobs, mastery data — updated every 10 seconds automatically while the game is running. No login. No API key.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📜</div>
+          <h3>Foundry Browser</h3>
+          <p>Browse every craftable item in the game. See the full ingredient tree, how many of each component you own right now, and exactly what you still need to gather. Foundry timer integration included.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>Prime Set Market</h3>
+          <p>Live warframe.market platinum prices for every prime set and component. Filter by owned, dupes, or tradeable. Instant ducat valuation with smart dupe detection that respects recipe quantities.</p>
+        </div>
+
+        <div class="feature-card feature-card-new">
+          <div class="feature-badge-new">New in v2.5</div>
+          <div class="feature-icon">🔧</div>
+          <h3>Mods &amp; Arcanes</h3>
+          <p>Browse, search and filter all tradeable mods and arcanes. See live 48-hour median platinum prices, your current stock, and quick-jump to warframe.market listings.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🕳</div>
+          <h3>Relic Helper</h3>
+          <p>Pick any prime part and see every relic that drops it, with Intact / Exceptional / Flawless / Radiant drop chances. Filter by vaulted status. Cross-reference your current relic stock instantly.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⏱</div>
+          <h3>Timers</h3>
+          <p>Live Warframe world state: void fissures by tier, Baro Ki'Teer (with stock when present), Archon Hunt, Void Storms, Sortie, world cycles and active events — all in real time.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Trading</h3>
+          <p>Full warframe.market order-book browser. Search any tradeable item, see current buy/sell orders with price history, status, and reputation — without leaving the app.</p>
+        </div>
+
+        <div class="feature-card feature-card-experimental">
+          <div class="feature-badge-experimental">Experimental</div>
+          <div class="feature-icon">🎯</div>
+          <h3>OCR Relic Overlay</h3>
+          <p>Auto-detects the void fissure reward screen, captures it with Windows OCR, and overlays platinum prices and ducat values on each reward card — so you pick the best reward at a glance. In heavy development.</p>
+        </div>
+
+        <div class="feature-card feature-card-experimental">
+          <div class="feature-badge-experimental">Experimental</div>
+          <div class="feature-icon">🔬</div>
+          <h3>Riven Analyser</h3>
+          <p>Scan your unveiled rivens directly from memory. Fuzzy-matched against your full riven inventory — displays disposition, rolls, and market context. In active development with ongoing improvements.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="screenshots" id="screenshots">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>See It In Action</h2>
+        <p>Real screenshots from FrameForge v2.5.</p>
+      </div>
+
+      <div class="stab-list">
+        <button class="stab active"     data-target="ss-inventory">Inventory</button>
+        <button class="stab"            data-target="ss-foundry">Foundry</button>
+        <button class="stab"            data-target="ss-primesets">Prime Sets</button>
+        <button class="stab stab-new"   data-target="ss-mods">Mods &amp; Arcanes</button>
+        <button class="stab"            data-target="ss-relic">Relic Helper</button>
+        <button class="stab"            data-target="ss-timers">Timers</button>
+        <button class="stab"            data-target="ss-trading">Trading</button>
+        <button class="stab"            data-target="ss-orderbook">Order Book</button>
+        <button class="stab stab-exp"   data-target="ss-riven">Riven Analyser</button>
+        <button class="stab stab-exp"   data-target="ss-overlay">OCR Overlay</button>
+      </div>
+
+      <div class="stab-panels">
+        <div class="stab-panel active" id="ss-inventory">
+          <img src="assets/Inventory-FrameForge.png" alt="FrameForge Inventory tab — live resource and item tracking">
+        </div>
+        <div class="stab-panel" id="ss-foundry">
+          <img src="assets/Foundry-FrameForge.png" alt="FrameForge Foundry browser — recipe ingredient trees">
+        </div>
+        <div class="stab-panel" id="ss-primesets">
+          <img src="assets/Market-Prime Sets-FrameForge.png" alt="FrameForge Market Helper — prime set platinum prices">
+        </div>
+        <div class="stab-panel" id="ss-mods">
+          <img src="assets/Market-Mods and Arcanes-FrameForge.png" alt="FrameForge Market Helper — mods and arcanes pricing (new in v2.5)">
+        </div>
+        <div class="stab-panel" id="ss-relic">
+          <img src="assets/Relics-FrameForge.png" alt="FrameForge Relic Helper — drop chance browser">
+        </div>
+        <div class="stab-panel" id="ss-timers">
+          <img src="assets/Timers-FrameForge.png" alt="FrameForge Timers — live world state">
+        </div>
+        <div class="stab-panel" id="ss-trading">
+          <img src="assets/Trading-listings-FrameForge.png" alt="FrameForge Trading — warframe.market order browser">
+        </div>
+        <div class="stab-panel" id="ss-orderbook">
+          <img src="assets/Trading-Order Popup-FrameForge.png" alt="FrameForge Trading — order book popup">
+        </div>
+        <div class="stab-panel stab-panel-exp" id="ss-riven">
+          <div class="exp-badge-overlay">Experimental · in active development</div>
+          <img src="assets/riven-overlay.png" alt="FrameForge Riven Analyser overlay (experimental)">
+        </div>
+        <div class="stab-panel stab-panel-exp" id="ss-overlay">
+          <div class="exp-badge-overlay">Experimental · in active development</div>
+          <img src="assets/relic-overlay.png" alt="FrameForge OCR Relic Reward Overlay (experimental)">
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Read-only, privacy-first, and fully transparent.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Memory Reading</h3>
+            <p>FrameForge uses the standard Windows <code>ReadProcessMemory</code> API to read your own inventory data from the Warframe process. This is <strong>strictly read-only</strong> — the app never writes to game memory, never injects code, and never modifies game state. Disabled by default.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Public Market Data</h3>
+            <p>Platinum prices are fetched from warframe.market's public API. World state (fissures, timers, Baro) comes from DE's own public CDN endpoint. No login or API key required.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Local OCR</h3>
+            <p>The reward overlay uses Windows' built-in OCR engine to read the reward screen from your local display. No screenshots are uploaded anywhere — processing happens entirely on your machine.</p>
+          </div>
+        </div>
+      </div>
+      <div class="how-note">
+        <p>We contacted Digital Extremes directly about FrameForge's features before publishing widely. Their position: tools run at your own risk. They did not tell us to stop, did not call out any specific feature as prohibited, and have not taken action against any users. Read the full exchange on the <a href="disclosure.html">Disclosure</a> page.</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- Download -->
+  <section class="download" id="download">
+    <div class="section-inner">
+      <div class="download-content">
+        <h2>Download FrameForge</h2>
+        <p>Free. No account required. Windows 10 / 11 (x64).</p>
+        <div class="download-actions">
+          <a href="https://github.com/WyrmStudios/FrameForge/releases/latest" target="_blank" rel="noopener" class="btn-primary btn-large">⬇ Download Installer (.msi)</a>
+          <a href="https://github.com/WyrmStudios/FrameForge/releases" target="_blank" rel="noopener" class="github-link">View all releases</a>
+        </div>
+        <p class="download-note">Windows 10 / 11 (64-bit) · WebView2 runtime required (built into Windows 11)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-logo">
@@ -234,8 +267,8 @@
       <div class="footer-links">
         <a href="docs.html">Docs</a>
         <a href="#features">Features</a>
-        <a href="legal.html">Legal</a>
-        <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a>
+        <a href="disclosure.html">Disclosure</a>
+        <a href="https://github.com/WyrmStudios/FrameForge" target="_blank" rel="noopener">GitHub</a>
         <a href="https://discord.com/invite/7NMsN9J8vy" target="_blank" rel="noopener">Discord</a>
         <a href="https://ko-fi.com/sikewyrm" target="_blank" rel="noopener">Ko-fi</a>
       </div>
