@@ -271,6 +271,12 @@
           </ul>
 
           <p>Prices are cached for the current session. No account required — requests go directly to the warframe.market public API.</p>
+
+          <h3>Rate limiting</h3>
+          <p>All requests to warframe.market are queued internally and spaced to stay within the platform's published rate limits. You cannot accidentally flood the API by rapid clicking — requests are held in a queue and dispatched at a controlled pace.</p>
+          <div class="callout callout-info">
+            If warframe.market changes their rate limit rules in the future, it is the user's responsibility to ensure their usage stays within those limits. FrameForge implements the limits as they were at the time of each release.
+          </div>
         </section>
 
         <hr class="docs-divider">
