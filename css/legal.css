@@ -100,6 +100,11 @@
   color: var(--gold);
 }
 
+.legal-badge-suspended {
+  background: rgba(235, 87, 87, 0.15);
+  color: #eb5757;
+}
+
 /* Questions list */
 .legal-questions {
   margin: 1rem 0 1rem 1.5rem;
@@ -274,4 +279,9 @@
 .risk-low {
   background: rgba(197, 168, 79, 0.15);
   color: var(--gold);
+}
+
+.risk-suspended {
+  background: rgba(235, 87, 87, 0.15);
+  color: #eb5757;
 }
