@@ -23,7 +23,7 @@
       <div class="nav-links">
         <a href="docs.html" style="color: var(--accent)">Docs</a>
         <a href="index.html#features">Features</a>
-        <a href="legal.html">Legal</a>
+        <a href="disclosure.html">Disclosure</a>
         <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a>
       </div>
       <div class="nav-social">
@@ -114,7 +114,7 @@
           </div>
 
           <h3>Warframe API connection</h3>
-          <p>Basic mod and arcane counts come from memory scanning and work without any account connection. Connecting the Warframe API adds mod ranks and additional detail. Credentials are scanned automatically from game memory — no manual login needed.</p>
+          <p>Basic mod and arcane counts come from memory scanning and work without any account connection. The optional Warframe API feature is currently suspended — see <a href="#companion-api">Warframe Companion API</a> for details.</p>
         </section>
 
         <hr class="docs-divider">
@@ -123,14 +123,11 @@
         <section id="companion-api">
           <h2>Warframe Companion API</h2>
 
-          <p>The connection to <code>api.warframe.com/api/inventory.php</code> is <strong>disabled by default</strong>. It can be enabled in <strong>Settings → Warframe Companion API</strong>.</p>
-
           <div class="callout callout-warning">
-            <strong>Enable at your own risk:</strong> A warning is shown before enabling this feature. Digital Extremes has not officially confirmed whether this endpoint is permitted for third-party community tools. Enabling it is entirely optional and at the user's own risk.
+            <strong>This feature is currently suspended.</strong> The connection to <code>api.warframe.com/api/inventory.php</code> has been voluntarily disabled while we seek clearer guidance from Digital Extremes on whether accessing this undocumented endpoint is permitted for community tools. See the <a href="disclosure.html">Disclosure</a> page for the full background.
           </div>
 
-          <p>When disabled (the default), all core features continue to work normally — inventory, Foundry, Market Helper, Relic Helper, Timers, and Statistics all use memory scanning or public data sources only.</p>
-          <p>When enabled, it adds mod ranks and additional inventory detail on top of what memory scanning already provides.</p>
+          <p>All core features continue to work normally without it — inventory, Foundry, Market Helper, Relic Helper, Timers, and Statistics all use memory scanning or public data sources only.</p>
         </section>
 
         <hr class="docs-divider">
@@ -483,7 +480,7 @@
             <h3>Is FrameForge safe to use?</h3>
             <p>FrameForge is strictly read-only. It uses <code>ReadProcessMemory</code> — the same Windows API used by Overwolf and hardware monitors. It never writes to memory, injects code, or hooks the game in any way.</p>
             <p>By default, network requests go only to: <a href="https://warframe.market" target="_blank" rel="noopener">warframe.market</a> (prices and trading), the official Warframe worldstate CDN (timer and event data — public, no authentication), WFCD community GitHub repositories (item catalog, recipe data, localisation), and the Warframe CDN (item images). Warframe's <code>EE.log</code> is read locally to detect trades and fissure reward screens — it is never uploaded. The Warframe Companion API (<code>api.warframe.com/api/inventory.php</code>) is only contacted if you explicitly enable it in Settings. No FrameForge server exists and no telemetry is collected.</p>
-            <p>Digital Extremes has historically permitted read-only companion tools. No account is required for any feature by default — inventory, Foundry, Market prices, Relics, Timers, and Statistics all work without any login. The optional Warframe Companion API (disabled by default) requires a Warframe account but is entirely opt-in. A warframe.market account is needed only for trading features. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
+            <p>Digital Extremes has confirmed that third-party tools can be run at the player's own risk. No account is required for any feature by default — inventory, Foundry, Market prices, Relics, Timers, and Statistics all work without any login. The Warframe Companion API feature is currently suspended pending clearer guidance from DE — see the <a href="disclosure.html">Disclosure</a> page for the full exchange. A warframe.market account is needed only for trading features. The full source code is available on <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a> under GPLv3 — you can read every line and verify exactly what it does.</p>
           </div>
 
           <div class="faq-item">
@@ -502,8 +499,8 @@
           </div>
 
           <div class="faq-item">
-            <h3>Will you add trading features?</h3>
-            <p>Yes, trading features are planned for a future release.</p>
+            <h3>Does FrameForge support trading?</h3>
+            <p>Yes — the Trading tab connects to your warframe.market account to manage listings and receive trade whispers. See <a href="#trading">Trading</a> above for the full feature breakdown.</p>
           </div>
 
           <div class="faq-item">
@@ -535,6 +532,24 @@
     </main>
 
   </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/logo.png" class="logo-img" alt="FrameForge">
+        FrameForge
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="index.html#features">Features</a>
+        <a href="disclosure.html">Disclosure</a>
+        <a href="https://github.com/Sikewyrm/FrameForge" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.com/invite/7NMsN9J8vy" target="_blank" rel="noopener">Discord</a>
+        <a href="https://ko-fi.com/sikewyrm" target="_blank" rel="noopener">Ko-fi</a>
+      </div>
+      <p class="footer-note">Not affiliated with Digital Extremes or Warframe.</p>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>
