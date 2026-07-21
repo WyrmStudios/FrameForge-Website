@@ -427,6 +427,7 @@ body {
   border-radius: var(--radius);
   padding: 28px;
   transition: border-color 0.2s, transform 0.2s;
+  position: relative;
 }
 
 .feature-card:hover {
@@ -449,6 +450,46 @@ body {
   font-size: 14px;
   color: var(--text-muted);
   line-height: 1.7;
+}
+
+/* New feature card variant */
+.feature-card-new {
+  border-color: rgba(88, 196, 220, 0.25);
+}
+
+.feature-badge-new {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--accent-dim);
+  color: var(--accent);
+  border: 1px solid rgba(88, 196, 220, 0.35);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Experimental feature card variant */
+.feature-card-experimental {
+  border-color: rgba(197, 168, 79, 0.2);
+}
+
+.feature-badge-experimental {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(197, 168, 79, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(197, 168, 79, 0.3);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 
 /* ── SCREENSHOTS ──────────────────────────────────── */
@@ -490,6 +531,29 @@ body {
   border-color: rgba(88, 196, 220, 0.28);
 }
 
+/* New tab indicator */
+.stab-new {
+  border-color: rgba(88, 196, 220, 0.2);
+}
+
+/* Experimental tab indicator */
+.stab-exp {
+  border-color: rgba(197, 168, 79, 0.2);
+  color: var(--gold);
+}
+
+.stab-exp:hover {
+  color: var(--gold);
+  background: rgba(197, 168, 79, 0.06);
+  border-color: rgba(197, 168, 79, 0.35);
+}
+
+.stab-exp.active {
+  color: var(--gold);
+  background: rgba(197, 168, 79, 0.1);
+  border-color: rgba(197, 168, 79, 0.4);
+}
+
 .stab-panels {
   position: relative;
 }
@@ -497,6 +561,7 @@ body {
 .stab-panel {
   display: none;
   text-align: center;
+  position: relative;
 }
 
 .stab-panel.active {
@@ -509,6 +574,25 @@ body {
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+}
+
+/* Experimental panel overlay badge */
+.stab-panel-exp img {
+  border-color: rgba(197, 168, 79, 0.25);
+}
+
+.exp-badge-overlay {
+  display: inline-block;
+  background: rgba(197, 168, 79, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(197, 168, 79, 0.3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
 }
 
 .screenshot-caption {
@@ -564,6 +648,29 @@ body {
   color: var(--text-muted);
   font-size: 15px;
   line-height: 1.7;
+}
+
+/* How it works — footer note box */
+.how-note {
+  max-width: 640px;
+  margin: 48px auto 0;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  text-align: center;
+}
+
+.how-note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.how-note a:hover {
+  text-decoration: underline;
 }
 
 /* ── DOWNLOAD ─────────────────────────────────────── */
