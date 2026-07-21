@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FrameForge — Disclosure. What FrameForge does, what Digital Extremes said, and what it means for you as a user.">
+  <title>Disclosure — FrameForge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/docs.css">
+  <link rel="stylesheet" href="css/legal.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" class="logo-img" alt="FrameForge">
+        FrameForge
+      </a>
+      <div class="nav-links">
+        <a href="docs.html">Docs</a>
+        <a href="index.html#features">Features</a>
+        <a href="disclosure.html" style="color: var(--accent)">Disclosure</a>
+        <a href="https://github.com/WyrmStudios/FrameForge" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="nav-social">
+        <a href="https://discord.com/invite/7NMsN9J8vy" target="_blank" rel="noopener" class="btn-discord">Discord</a>
+        <a href="https://ko-fi.com/sikewyrm" target="_blank" rel="noopener" class="btn-kofi">Ko-fi</a>
+      </div>
+      <a href="index.html#download" class="btn-download">Download</a>
+    </div>
+  </nav>
+
+  <div class="docs-layout">
+
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <div class="sidebar-group">
+          <div class="sidebar-group-title">On This Page</div>
+          <a href="#overview" class="sidebar-link">Overview</a>
+          <a href="#what-ff-does" class="sidebar-link">What FrameForge Does</a>
+          <a href="#eula" class="sidebar-link">The EULA</a>
+          <a href="#exchange" class="sidebar-link">Exchange with DE</a>
+          <a href="#unanswered" class="sidebar-link">Unanswered Questions</a>
+          <a href="#what-it-means" class="sidebar-link">What This Means</a>
+          <a href="#feature3" class="sidebar-link">Why Feature 3 is Suspended</a>
+          <a href="#risk-summary" class="sidebar-link">Risk Summary</a>
+          <a href="#commitment" class="sidebar-link">Our Commitment</a>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-group-title">Documents</div>
+          <a href="assets/de-response.pdf" download class="sidebar-link sidebar-link-download">⬇ Download Full DE Ticket (PDF)</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-content">
+      <article>
+
+        <div class="docs-page-header">
+          <h1>Disclosure</h1>
+          <p class="docs-lead">FrameForge's developer contacted Digital Extremes directly to ask whether its features could place users at risk of account action. This page documents what was asked, what DE said, and what it means for you — transparently and in full.</p>
+          <a href="assets/de-response.pdf" download class="btn-primary btn-download-pdf">⬇ Download Full DE Ticket (PDF)</a>
+        </div>
+
+        <!-- Overview -->
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>FrameForge is a free, open-source companion application for Warframe. It reads your own inventory data and displays it to you — it never modifies the game, never automates gameplay, and never gives any competitive advantage.</p>
+          <p>Because some of its features interact with the Warframe process or DE's servers in unconventional ways, the developer (Sikewyrm) opened a formal support ticket with Digital Extremes on <strong style="color:var(--text)">June 1, 2026</strong> to ask whether any feature could put users at risk. The full exchange ran through <strong style="color:var(--text)">July 16, 2026</strong> and is documented on this page.</p>
+        </section>
+
+        <!-- What FF does -->
+        <section id="what-ff-does">
+          <h2>What FrameForge Does</h2>
+          <p>FrameForge uses three methods to gather data. Here is exactly what each one does and its current status.</p>
+
+          <div class="legal-feature-block">
+            <div class="legal-feature-header">
+              <span class="legal-feature-num">Feature 1</span>
+              <h3>Memory Reading (ReadProcessMemory)</h3>
+              <span class="legal-badge legal-badge-low">Low Risk</span>
+            </div>
+            <p>FrameForge uses the standard Windows <code>ReadProcessMemory</code> API to read your own inventory data from the Warframe process running on your machine. This is strictly read-only — the app never writes to game memory, never injects code, never hooks any function, and never modifies game state in any way. It only observes data that the game has already written into your machine's RAM to display your own items back to you.</p>
+            <div class="callout callout-info">This feature is <strong>disabled by default</strong> and must be manually enabled in Settings.</div>
+          </div>
+
+          <div class="legal-feature-block">
+            <div class="legal-feature-header">
+              <span class="legal-feature-num">Feature 2</span>
+              <h3>Public World State Data</h3>
+              <span class="legal-badge legal-badge-none">Effectively No Risk</span>
+            </div>
+            <p>FrameForge fetches live game data from DE's own public CDN endpoint (<code>api.warframe.com/cdn/worldState.php</code>) to power the Timers tab — void fissures, Baro Ki'Teer, world cycles, events, and more. No login or authentication is required. This is the same publicly accessible endpoint used by dozens of established community tools.</p>
+            <div class="callout callout-info">This feature is <strong>always active</strong> and requires no opt-in.</div>
+          </div>
+
+          <div class="legal-feature-block" style="border-color: rgba(240,192,64,.3);">
+            <div class="legal-feature-header">
+              <span class="legal-feature-num">Feature 3</span>
+              <h3>Warframe Inventory API</h3>
+              <span class="legal-badge legal-badge-suspended">Suspended</span>
+            </div>
+            <p>This feature would optionally connect to Warframe's internal inventory API (<code>api.warframe.com/api/inventory.php</code>) using a temporary session token read from the Warframe process. The endpoint is not publicly documented by DE.</p>
+            <div class="callout callout-warning">
+              <strong>This feature is currently suspended.</strong> After the full exchange with DE's support team, we were unable to obtain a clear answer about whether accessing this specific endpoint is permitted. Rather than risk our users, we voluntarily disabled this feature pending clearer guidance. See <a href="#feature3">Why Feature 3 is Suspended</a> below.
+            </div>
+          </div>
+        </section>
+
+        <!-- EULA -->
+        <section id="eula">
+          <h2>The EULA</h2>
+          <p>In their initial reply, DE's support team cited the following passage:</p>
+          <blockquote class="legal-quote">
+            "You agree that you will not, under any circumstances: [...] reverse engineer, decompile, disassemble or otherwise derive source code or game data from the Software or reduce the Software to a human-readable form, except to the extent that such actions are expressly permitted by applicable law or publish or share same with anyone."
+          </blockquote>
+          <p>They attributed this to <strong style="color:var(--text)">Section 2, subsection b</strong>. However, when we reviewed the current EULA at <code>warframe.com/en/eula</code>, that section structure no longer exists — the document appears to have been reorganised. The equivalent restrictions are now in <strong style="color:var(--text)">Section 7 (Player Conduct)</strong>.</p>
+          <p>We reviewed each relevant clause in Section 7 against what FrameForge actually does:</p>
+          <ul>
+            <li><strong style="color:var(--text)">"intercept, emulate, or redirect any communication between the Services and us"</strong> — FrameForge does not intercept, emulate, or redirect any network communication between the game client and DE's servers.</li>
+            <li><strong style="color:var(--text)">"collect information about the Game"</strong> — FrameForge reads a player's own runtime inventory data from their own machine's local memory, not from DE's servers.</li>
+            <li><strong style="color:var(--text)">"mods, hacks, cheats, bots [...] that interact with the Services in any way"</strong> — FrameForge does not automate gameplay and does not interact with the game client in any way. It is a passive, read-only observer.</li>
+            <li><strong style="color:var(--text)">"datamine[ing]"</strong> — FrameForge does not extract data from game asset files or packages. It reads data the game has already loaded into RAM in a structured, readable format.</li>
+          </ul>
+          <p>We asked DE to clarify which specific current provision applies. They were unable to provide a specific answer (see the exchange below).</p>
+        </section>
+
+        <!-- Exchange -->
+        <section id="exchange">
+          <h2>The Full Exchange with Digital Extremes</h2>
+          <p>Support ticket <strong style="color:var(--text)">#4235075</strong> was opened on <strong style="color:var(--text)">June 1, 2026</strong>. The exchange ran through <strong style="color:var(--text)">July 16, 2026</strong>. Below is the complete timeline.</p>
+
+          <div class="legal-timeline">
+
+            <div class="timeline-entry timeline-entry-us">
+              <div class="timeline-meta">
+                <span class="timeline-who">Sikewyrm</span>
+                <span class="timeline-date">June 1, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Submitted a formal inquiry describing all three features in technical detail and asking four direct questions: (1) Does read-only ReadProcessMemory use violate the EULA? (2) Is the public worldState CDN permitted? (3) Is the inventory API via the player's own session credentials permitted? (4) Will players who have already used these features face account action?</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry">
+              <div class="timeline-meta">
+                <span class="timeline-who">[DE]Tomasz</span>
+                <span class="timeline-date">June 4, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>DE stated they do not support or endorse third-party software and cited EULA Section 2, subsection b (reverse engineering clause). The ban risk question was not directly answered.</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry timeline-entry-us">
+              <div class="timeline-meta">
+                <span class="timeline-who">Sikewyrm</span>
+                <span class="timeline-date">June 4, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Followed up pressing specifically on the ban question. Reiterated that FrameForge does not automate gameplay, does not provide any competitive advantage, and does not interact with other players' accounts in any way.</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry">
+              <div class="timeline-meta">
+                <span class="timeline-who">[DE]Tomasz</span>
+                <span class="timeline-date">June 5, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <blockquote class="legal-quote legal-quote-inline">
+                  "Please note, you can run/develop any third-party tool while playing Warframe at your own risk. There is no other info we can give you beyond our first response."
+                </blockquote>
+              </div>
+            </div>
+
+            <div class="timeline-entry timeline-entry-us">
+              <div class="timeline-meta">
+                <span class="timeline-who">Sikewyrm</span>
+                <span class="timeline-date">June 5, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Published the first version of this disclosure page and notified users of DE's response. Accepted DE's position and thanked them for their time.</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry timeline-entry-us">
+              <div class="timeline-meta">
+                <span class="timeline-who">Sikewyrm</span>
+                <span class="timeline-date">June 6, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Noted that the EULA section cited by DE (Section 2b) no longer appears in the current EULA at <code>warframe.com/en/eula</code>. Reviewed Section 7 (Player Conduct) in full and raised six specific questions about the current EULA language. Asked to be connected with DE's legal, developer relations, or policy team if support could not answer. See <a href="#unanswered">Unanswered Questions</a> below.</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry">
+              <div class="timeline-meta">
+                <span class="timeline-who">[DE]Tomasz</span>
+                <span class="timeline-date">June 10, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Support stated there was no way for the support team to answer the in-depth questions. Offered to try to reach DE's dev or community team and left the ticket open.</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry timeline-entry-us">
+              <div class="timeline-meta">
+                <span class="timeline-who">Sikewyrm</span>
+                <span class="timeline-date">June 23, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Followed up to keep the ticket active and confirm there was no rush — simply wanted to prevent it from auto-closing before DE had a chance to respond.</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry">
+              <div class="timeline-meta">
+                <span class="timeline-who">[DE]Tomasz</span>
+                <span class="timeline-date">July 15, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>DE confirmed they had tried to reach an available developer but could not get anyone to comment, citing the recently concluded TennoCon event. Suggested posting on the Warframe Forums or community socials to seek input from other Tenno who may have navigated similar questions. <strong style="color:var(--text)">Ticket closed.</strong></p>
+              </div>
+            </div>
+
+            <div class="timeline-entry timeline-entry-us">
+              <div class="timeline-meta">
+                <span class="timeline-who">Sikewyrm</span>
+                <span class="timeline-date">July 16, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Asked which forum section would be most appropriate for this kind of developer inquiry.</p>
+              </div>
+            </div>
+
+            <div class="timeline-entry">
+              <div class="timeline-meta">
+                <span class="timeline-who">[DE]Tomasz</span>
+                <span class="timeline-date">July 16, 2026</span>
+              </div>
+              <div class="timeline-body">
+                <p>Recommended the <strong style="color:var(--text)">Players Helping Players</strong> sub-forum on the Warframe Forums. Ticket permanently closed for comments.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Unanswered questions -->
+        <section id="unanswered">
+          <h2>Unanswered Questions</h2>
+          <p>The following six questions were raised on June 6, 2026. DE's support team was unable to answer them and could not escalate to a team that could. They remain unanswered.</p>
+          <ol class="legal-questions">
+            <li><strong style="color:var(--text)">EULA section:</strong> The section cited in DE's first reply (Section 2, subsection b) no longer appears in the current EULA. Which specific provision of the current EULA applies to FrameForge's described behaviour?</li>
+            <li><strong style="color:var(--text)">"Collect information about the Game" (Section 7):</strong> Does reading a player's own runtime inventory data from their own machine's local memory — not from DE's servers, not via network interception — constitute "collecting information about the Game"?</li>
+            <li><strong style="color:var(--text)">"Datamine" (Section 7):</strong> FrameForge does not extract data from game asset files or packages. Does reading data the game has already loaded into RAM fall within the definition of "datamining" as used in Section 7?</li>
+            <li><strong style="color:var(--text)">"Non-public areas of the Services" (Section 7) — Feature 3 only:</strong> Does accessing the inventory API endpoint using the player's own active session token count as accessing "non-public areas of the Services"?</li>
+            <li><strong style="color:var(--text)">"Leveraging only the functionality of the Game and Services" (Section 6):</strong> Does Section 6 prohibit companion tools that run entirely independently of the game client — tools that do not modify, hook into, or extend the game's functionality, but simply observe data on the same machine?</li>
+            <li><strong style="color:var(--text)">Cheat Detection Software (Section 8):</strong> Should users be concerned that Warframe's cheat detection systems may flag FrameForge as an unauthorised process, given that FrameForge does not cheat, does not automate gameplay, and does not provide any competitive advantage?</li>
+          </ol>
+          <div class="callout callout-info">
+            These questions are documented here so users have the full picture. Where DE could not clarify, we have noted that outcome rather than speculating.
+          </div>
+        </section>
+
+        <!-- What This Means -->
+        <section id="what-it-means">
+          <h2>What This Means</h2>
+          <p>DE's position is their standard response for all third-party companion tools — the same language used when players ask about tools like Warframe Companion, Overwolf overlays, and similar apps. It is important to understand exactly what was and was not said.</p>
+
+          <div class="legal-verdict-cols">
+            <div class="legal-verdict-col legal-verdict-confirmed">
+              <h4>What DE confirmed</h4>
+              <ul>
+                <li>Players can run and develop third-party tools for Warframe.</li>
+                <li>Doing so is at the individual player's own risk.</li>
+                <li>DE does not support or endorse third-party tools.</li>
+              </ul>
+            </div>
+            <div class="legal-verdict-col legal-verdict-not-said">
+              <h4>What DE did not say</h4>
+              <ul>
+                <li>They did not say any FrameForge feature would result in a ban.</li>
+                <li>They did not instruct FrameForge to shut down or remove any feature.</li>
+                <li>They did not single out ReadProcessMemory or the inventory API as enforcement targets.</li>
+                <li>They did not tell us to stop distributing FrameForge.</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>In plain terms: DE's position is "using FrameForge is at your own risk." They have not said it is prohibited, and they have not ordered any action to be taken. DE's enforcement history targets players who cheat — aimbots, automation, gaining unfair in-game advantages over others. FrameForge does none of these things.</p>
+        </section>
+
+        <!-- Feature 3 suspension -->
+        <section id="feature3">
+          <h2>Why Feature 3 is Suspended</h2>
+          <p>Feature 3 (the optional Warframe inventory API connection) was <strong style="color:var(--text)">voluntarily suspended by us</strong> — not because DE told us to remove it, but because we were unable to get a clear answer about whether accessing an undocumented DE endpoint is permitted.</p>
+          <p>The six questions in the section above remain unanswered. Until we have a clearer picture — whether from DE directly, from the Warframe Forums, or from community precedent — we would rather err on the side of caution for our users.</p>
+          <p>If DE clarifies that this endpoint is acceptable for community tools, or if established community precedent shows it is used safely by other tools, we will re-enable the feature. If DE indicates it is not permitted, we will remove it entirely and say so clearly here.</p>
+          <div class="callout callout-warning">
+            Feature 3 is fully disabled in the app. Even if a previous version of FrameForge had it enabled in your settings, it will not make any API calls.
+          </div>
+        </section>
+
+        <!-- Risk Summary -->
+        <section id="risk-summary">
+          <h2>Risk Summary</h2>
+          <table class="legal-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Status</th>
+                <th>Risk</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Memory reading (Feature 1)</td>
+                <td><span class="risk-tag risk-low">Active</span></td>
+                <td><span class="risk-tag risk-low">Low</span></td>
+                <td>Read-only. Same approach used by Overwolf, which has a formal partnership with DE. Disabled by default.</td>
+              </tr>
+              <tr>
+                <td>Public worldState data (Feature 2)</td>
+                <td><span class="risk-tag risk-none">Active</span></td>
+                <td><span class="risk-tag risk-none">Effectively none</span></td>
+                <td>Publicly accessible endpoint used by dozens of established community tools. Always active.</td>
+              </tr>
+              <tr>
+                <td>Inventory API (Feature 3)</td>
+                <td><span class="risk-tag risk-suspended">Suspended</span></td>
+                <td><span class="risk-tag risk-suspended">Unconfirmed</span></td>
+                <td>Voluntarily suspended pending clearer guidance from DE. No API calls are made regardless of settings.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Commitment -->
+        <section id="commitment">
+          <h2>Our Commitment</h2>
+          <p>We will keep this page updated as the situation evolves. If DE's position changes — in either direction — we will update both this page and the app immediately and notify users.</p>
+          <p>FrameForge is developed in good faith by a Warframe player, for Warframe players. The full support ticket (ticket #4235075, June 1 – July 16, 2026) is preserved and available to download below.</p>
+          <a href="assets/de-response.pdf" download class="btn-primary btn-download-pdf">⬇ Download Full DE Ticket (PDF)</a>
+        </section>
+
+      </article>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/logo.png" class="logo-img" alt="FrameForge">
+        FrameForge
+      </div>
+      <div class="footer-links">
+        <a href="docs.html">Docs</a>
+        <a href="index.html#features">Features</a>
+        <a href="disclosure.html">Disclosure</a>
+        <a href="https://github.com/WyrmStudios/FrameForge" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://discord.com/invite/7NMsN9J8vy" target="_blank" rel="noopener">Discord</a>
+        <a href="https://ko-fi.com/sikewyrm" target="_blank" rel="noopener">Ko-fi</a>
+      </div>
+      <p class="footer-note">Not affiliated with Digital Extremes or Warframe.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
