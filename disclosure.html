@@ -48,7 +48,7 @@
           <a href="#unanswered" class="sidebar-link">Unanswered Questions</a>
           <a href="#what-it-means" class="sidebar-link">What This Means</a>
           <a href="#feature3" class="sidebar-link">Why Feature 3 is Suspended</a>
-          <a href="#risk-summary" class="sidebar-link">Risk Summary</a>
+          <a href="#risk-summary" class="sidebar-link">Summary</a>
           <a href="#commitment" class="sidebar-link">Our Commitment</a>
         </div>
         <div class="sidebar-group">
@@ -83,7 +83,6 @@
             <div class="legal-feature-header">
               <span class="legal-feature-num">Feature 1</span>
               <h3>Memory Reading (ReadProcessMemory)</h3>
-              <span class="legal-badge legal-badge-low">Low Risk</span>
             </div>
             <p>FrameForge uses the standard Windows <code>ReadProcessMemory</code> API to read your own inventory data from the Warframe process running on your machine. This is strictly read-only — the app never writes to game memory, never injects code, never hooks any function, and never modifies game state in any way. It only observes data that the game has already written into your machine's RAM to display your own items back to you.</p>
             <div class="callout callout-info">This feature is <strong>disabled by default</strong> and must be manually enabled in Settings.</div>
@@ -93,7 +92,6 @@
             <div class="legal-feature-header">
               <span class="legal-feature-num">Feature 2</span>
               <h3>Public World State Data</h3>
-              <span class="legal-badge legal-badge-none">Effectively No Risk</span>
             </div>
             <p>FrameForge fetches live game data from DE's own public CDN endpoint (<code>api.warframe.com/cdn/worldState.php</code>) to power the Timers tab — void fissures, Baro Ki'Teer, world cycles, events, and more. No login or authentication is required. This is the same publicly accessible endpoint used by dozens of established community tools.</p>
             <div class="callout callout-info">This feature is <strong>always active</strong> and requires no opt-in.</div>
@@ -308,35 +306,31 @@
           </div>
         </section>
 
-        <!-- Risk Summary -->
+        <!-- Summary -->
         <section id="risk-summary">
-          <h2>Risk Summary</h2>
+          <h2>Summary</h2>
           <table class="legal-table">
             <thead>
               <tr>
                 <th>Feature</th>
                 <th>Status</th>
-                <th>Risk</th>
                 <th>Notes</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Memory reading (Feature 1)</td>
-                <td><span class="risk-tag risk-low">Active</span></td>
-                <td><span class="risk-tag risk-low">Low</span></td>
+                <td>Active</td>
                 <td>Read-only. Same approach used by Overwolf, which has a formal partnership with DE. Disabled by default.</td>
               </tr>
               <tr>
                 <td>Public worldState data (Feature 2)</td>
-                <td><span class="risk-tag risk-none">Active</span></td>
-                <td><span class="risk-tag risk-none">Effectively none</span></td>
+                <td>Active</td>
                 <td>Publicly accessible endpoint used by dozens of established community tools. Always active.</td>
               </tr>
               <tr>
                 <td>Inventory API (Feature 3)</td>
                 <td><span class="risk-tag risk-suspended">Suspended</span></td>
-                <td><span class="risk-tag risk-suspended">Unconfirmed</span></td>
                 <td>Voluntarily suspended pending clearer guidance from DE. No API calls are made regardless of settings.</td>
               </tr>
             </tbody>
