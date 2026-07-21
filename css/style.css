@@ -200,10 +200,11 @@ body {
 }
 
 .hero-actions {
-  display: inline-flex;
+  display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  width: fit-content;
+  margin: 0 auto 16px;
 }
 
 .btn-primary {
