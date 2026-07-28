@@ -439,6 +439,12 @@ body {
   font-size: 28px;
   margin-bottom: 14px;
 }
+.feature-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
 
 .feature-card h3 {
   font-size: 17px;
