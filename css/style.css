@@ -591,6 +591,11 @@ body {
   border-color: rgba(197, 168, 79, 0.25);
 }
 
+#ss-riven img {
+  max-width: 480px;
+  width: auto;
+}
+
 .exp-badge-overlay {
   display: block;
   width: fit-content;
